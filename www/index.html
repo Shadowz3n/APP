@@ -18,19 +18,152 @@
     under the License.
 -->
 <html>
-    <head>	
-        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <title>Aplicativo</title>
-    </head>
-    <body>
-        <div class="app">
-            
+  <head>
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Aplicativo</title>
+  </head>
+  <body>
+    <div class="app">
+      <header class="appHeader">
+        <div class="headerLogo">
+          <a href="#">
+            <img class="userImage" src="img/user.jpg" alt="">
+            <img class="appLogoImage" src="img/logoApp.gif" alt="">
+          </a>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/script.js"></script>
-    </body>
+        <div class="headerAside">
+          <nav>
+            <ul>
+              <li>
+                <a href="#"><i class="fa fa-send"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-ellipsis-v"></i></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="clear-both"></div>
+      </header>
+      <div class="feedPage">
+        <section class="liveSection">
+          <ul>
+            <li>
+              <a class="active" href="#">
+                <img class="userImage" src="img/user.jpg" alt="">
+                <span>Eloá Ribeiro</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img class="userImage" src="img/user.jpg" alt="">
+                <span>Maycol Douglas</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img class="userImage" src="img/user.jpg" alt="">
+                <span>Daniel Barros</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img class="userImage" src="img/user.jpg" alt="">
+                <span>Sarah Nydya</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section class="feedSection">
+          <ul>
+            <li>
+              <a href="#">
+                <img class="userImage" src="img/user.jpg" alt="">
+              </a>
+              <span class="userName"><a href="#">Daniel Barros</a></span><br>
+              <span>
+                adicionou <a href="#">De janeiro a janeiro</a><br>
+                à playlist <em>Hora de Dormir</em>
+              </span>
+              <span class="feedTime">5h</span>
+            </li>
+            <li>
+              <a href="#">
+                <img class="userImage" src="img/user.jpg" alt="">
+              </a>
+              <span class="userName"><a href="#">Sarah Nydya</a></span><br>
+              <span>
+                começou a seguir <a href="#">Maycol Douglas</a>
+              </span>
+              <span class="feedTime">5h</span>
+            </li>
+            <li>
+              <a href="#">
+                <img class="userImage" src="img/user.jpg" alt="">
+              </a>
+              <span class="userName"><a href="#">Maycol Douglas</a></span><br>
+              <span>
+                adicionou playlist <a href="#">Hora de Dormir</a>
+              </span>
+              <span class="feedTime">5h</span>
+            </li>
+            <li>
+              <a href="#">
+                <img class="userImage" src="img/user.jpg" alt="">
+              </a>
+              <span class="userName"><a href="#">Eloá Ribeiro</a></span><br>
+              <span>
+                está ouvindo <a href="#">trem-bala - ana vilela</a><br>
+                da playlist <em>Hora de Dormir</em>
+              </span>
+              <span class="feedTime">5h</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+      <footer class="appFooter">
+        <nav>
+          <ul>
+            <li class="active">
+              <a href="#">
+                <i class="icon"></i>
+                Feed
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="icon"></i>
+                Pesquisar
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="icon"></i>
+                Minha conta
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="icon"></i>
+                Notificações
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="icon"></i>
+                Playlist
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </footer>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
 </html>

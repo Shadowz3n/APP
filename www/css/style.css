@@ -16,7 +16,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-*{-webkit-tap-highlight-color: rgba(0,0,0,0)}
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
 html{width:100%;height:100%}
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
@@ -25,28 +30,125 @@ body {
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
     height:100%;
-    margin:0px;
-    padding:0px;
-    text-transform:uppercase;
     width:100%;
     height:100%
 }
+a{
+  text-decoration: none;
+}
 
-.app{background:url(../img/icon.jpg) no-repeat center center;position:relative;height:100%;width:100%;text-align:center}
+.app{position:relative;height:100%;width:100%;}
 
 @keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 @-webkit-keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+.appHeader{
+  background: #000;
+  color: #fff;
+  display: block;
+  padding: 10px 15px 5px 20px;
+  width: 100%;
+}
+
+.clear-both{
+  clear: both;
+}
+
+.headerLogo{
+  display: block;
+  float: left;
+  height: 65px;
+}
+
+.headerLogo > a > .userImage{
+  margin: 5px 2px 0 0;
+}
+
+.headerLogo > a > .appLogoImage{
+  vertical-align: 5px;
+}
+
+.userImage{
+  border:2px solid transparent;
+  border-radius: 100%;
+  height:50px;
+  width: 50px;
+}
+
+.headerAside{
+  display: block;
+  float: right;
+  height: 65px;
+}
+
+.headerAside > nav > ul{
+  list-style: none;
+}
+
+.headerAside > nav > ul > li{
+  display: inline-block;
+}
+
+.headerAside > nav > ul > li > a{
+  color: #fdfdfd;
+  display: block;
+  font-size: 20px;
+  margin: 0 0 0 10px;
+  padding:10px;
+}
+
+.liveSection{
+  background: #2b2b2b url(../img/liveTag.jpg) no-repeat center left;
+  display: block;
+  padding: 10px 10px 10px 40px;
+  width: 100%;
+}
+
+.liveSection > ul{
+  list-style: none;
+}
+
+.liveSection > ul > li{
+  display: inline-block;
+}
+
+.liveSection > ul > li > a{
+  color: #fdfdfd;
+  display: block;
+  font-size: 10px;
+  width: 100%;
+}
+.liveSection > ul > li > a > img{
+  display: block;
+  margin: 0 auto 5px;
+}
+
+.active > .userImage{
+  border:2px solid #92182a;
+}
+
+.appFooter{
+  background: #2b2b2b;
+}
+
+.appFooter > nav > ul > li > a{
+  color: #656565;
+}
+
+.appFooter > nav > ul > li.active > a{
+  color: #fff;
 }
