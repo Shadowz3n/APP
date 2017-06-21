@@ -1,0 +1,38 @@
+{
+    "name": "helloworld",
+    "displayName": "HelloCordova",
+    "version": "1.0.0",
+    "description": "A sample Apache Cordova application that responds to the deviceready event.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Apache Cordova Team",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "cordova-android": "^6.2.3",
+        "cordova-ios": "^4.4.0",
+        "cordova-plugin-facebook": "^0.2.2",
+        "cordova-plugin-googleplus": "^5.1.1",
+        "cordova-plugin-whitelist": "1",
+        "cordova-plugin-x-socialsharing": "git+https://github.com/Telerik-Verified-Plugins/SocialSharing.git",
+        "nl.x-services.plugins.socialsharing": "https://github.com/Telerik-Verified-Plugins/SocialSharing"
+    },
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-facebook": {
+                "FACEBOOK_DISPLAY_NAME": "Youoff",
+                "FACEBOOK_APP_ID": "1500867896630018"
+            },
+            "cordova-plugin-inappbrowser": {},
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-googleplus": {
+                "REVERSED_CLIENT_ID": "com.googleusercontent.apps.801733331523-e1sjq1hfldohho0fcuqrbdjqk9q7pc39"
+            },
+            "nl.x-services.plugins.socialsharing": {}
+        },
+        "platforms": [
+            "ios"
+        ]
+    }
+}

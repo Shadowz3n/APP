@@ -1,0 +1,84 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-plugin-facebook",
+        "scope": null,
+        "escapedName": "cordova-plugin-facebook",
+        "name": "cordova-plugin-facebook",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/var/www/html/hello/node_modules"
+    ]
+  ],
+  "_from": "cordova-plugin-facebook@latest",
+  "_id": "cordova-plugin-facebook@0.2.2",
+  "_inCache": true,
+  "_location": "/cordova-plugin-facebook",
+  "_nodeVersion": "0.12.4",
+  "_npmUser": {
+    "name": "bisrael",
+    "email": "blake.israel@gatech.edu"
+  },
+  "_npmVersion": "2.10.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-plugin-facebook",
+    "scope": null,
+    "escapedName": "cordova-plugin-facebook",
+    "name": "cordova-plugin-facebook",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-facebook/-/cordova-plugin-facebook-0.2.2.tgz",
+  "_shasum": "a9bb57d8c3b8a4017a6a288b823b02df8f13f414",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-facebook",
+  "_where": "/var/www/html/hello/node_modules",
+  "author": {
+    "name": "Blake Israel"
+  },
+  "bugs": {
+    "url": "https://github.com/bisrael/cordova-plugin-facebook/issues"
+  },
+  "dependencies": {},
+  "description": "A Facebook plugin for Cordova 5.0.0+",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "a9bb57d8c3b8a4017a6a288b823b02df8f13f414",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-facebook/-/cordova-plugin-facebook-0.2.2.tgz"
+  },
+  "gitHead": "cb1b1edef4dc14a233287b39d89fc7c84d4cc04f",
+  "homepage": "https://github.com/bisrael/cordova-plugin-facebook#readme",
+  "keywords": [
+    "cordova",
+    "facebook"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "bisrael",
+      "email": "blake.israel@gatech.edu"
+    }
+  ],
+  "name": "cordova-plugin-facebook",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bisrael/cordova-plugin-facebook.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.2.2"
+}

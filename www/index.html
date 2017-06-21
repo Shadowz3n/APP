@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<!--
+	Licensed to the Apache Software Foundation (ASF) under one
+	or more contributor license agreements.  See the NOTICE file
+	distributed with this work for additional information
+	regarding copyright ownership.  The ASF licenses this file
+	to you under the Apache License, Version 2.0 (the
+	"License"); you may not use this file except in compliance
+	with the License.  You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing,
+	software distributed under the License is distributed on an
+	"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+	 KIND, either express or implied.  See the License for the
+	specific language governing permissions and limitations
+	under the License.
+	-->
+<html>
+	<head>
+		<!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title>Aplicativo</title>
+	</head>
+	<body>
+		<div class="app">
+			<header class="appHeader">
+				<div class="headerLogo">
+					<a href="#feed">
+						<img class="userImage current_user_img" src="img/user.jpg" alt="">
+						<img class="appLogoImage" src="img/logo.svg" width="53" height="38.56" alt="">
+					</a>
+				</div>
+				<div class="headerAside">
+					<nav>
+						<ul>
+							<li>
+								<a href="#notify"><i class="fa fa-send"></i></a>
+							</li>
+							<li>
+								<a href="#"><i class="material-icons">&#xE5D4;</i></a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="clear-both"></div>
+			</header>
+			<div class="all">
+				<div class="swiper-container app_swiper barra_de_rolagem">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide feed_slide" id="feed" data-hash="feed">
+							<section class="liveSection">
+								<ul id="feed_live">
+									<!--
+									<li>
+										<a class="active" href="#player_live">
+										<img class="userImage" src="img/user.jpg" alt="">
+										<span>Eloá2 Ribeiro</span>
+										</a>
+									</li>
+									-->
+								</ul>
+							</section>
+							<section class="userFeed">
+								<ul id="feed_ul">
+									<!--
+									<li>
+										<a href="#user_page">
+										<img class="userImage" src="img/user.jpg" alt="">
+										</a>
+										<span class="userName"><a href="#user_page">Daniel Barros</a></span>
+										<span>
+										adicionou <a href="#player">De janeiro a janeiro</a><br>
+										à playlist <em>Hora de Dormir</em>
+										</span>
+										<span class="feedTime">5h</span>
+									</li>
+									<li>
+										<a href="#user_page">
+										<img class="userImage" src="img/user.jpg" alt="">
+										</a>
+										<span class="userName"><a href="#user_page">Sarah Nydya</a></span>
+										<span>
+										começou a seguir <a href="#user_page">Maycol Douglas</a>
+										</span>
+										<span class="feedTime">5h</span>
+									</li>
+									<li>
+										<a href="#user_page">
+										<img class="userImage" src="img/user.jpg" alt="">
+										</a>
+										<span class="userName"><a href="#user_page">Maycol Douglas</a></span>
+										<span>
+										adicionou playlist <a href="#player">Hora de Dormir</a>
+										</span>
+										<span class="feedTime">5h</span>
+									</li>
+									<li>
+										<a href="#user_page">
+										<img class="userImage" src="img/user.jpg" alt="">
+										</a>
+										<span class="userName"><a href="#user_page">Eloá Ribeiro</a></span>
+										<span>
+										está ouvindo <a href="#player">trem-bala - ana vilela</a><br>
+										da playlist <em>Hora de Dormir</em>
+										</span>
+										<span class="feedTime">5h</span>
+									</li>
+									-->
+								</ul>
+							</section>
+						</div>
+						<div class="swiper-slide" id="search" data-hash="search">
+							<div class="search_options_to_top">
+								<form class="searchForm" onsubmit="return false;">
+									<i class="fa fa-search"></i>
+									<input type="text" id="search_input">
+								</form>
+								<nav class="tabs searchTabs">
+									<ul>
+										<li data-search="video">
+											<a href="#search&mixed"><i class="material-icons">&#xE164;</i></a>
+										</li>
+										<li data-search="video">
+											<a href="#search&music"><i class="fa fa-music"></i></a>
+										</li>
+										<li data-search="playlist">
+											<a href="#search&playlist">
+												<img class="svgIcon icon_on" src="img/icones-09.svg" alt="">
+												<img class="svgIcon icon_off" src="img/icones-09_off.svg" alt="">
+											</a>
+										</li>
+										<li data-search="channel">
+											<a href="#search&user"><i class="fa fa-user-circle-o"></i></a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+							
+							<div class="swiper-container search_swiper">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide" data-hash="search&mixed">
+										<section class="searchFeed hash_page" id="mixed"></section>
+									</div>
+									<div class="swiper-slide" data-hash="search&music">
+										<section class="searchFeed hash_page" id="music"></section>
+									</div>
+									<div class="swiper-slide" data-hash="search&playlist">
+										<section class="searchFeed hash_page" id="playlist"></section>
+									</div>
+									<div class="swiper-slide" data-hash="search&user">
+										<section class="searchFeed hash_page" id="user"></section>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide my_account_slide" id="my_account" data-hash="my_account">
+							<header class="userHeader">
+								<div class="userInfos myAccount">
+									<div class="buttonBack">
+										<!--<a href="#feed"><i class="fa fa-angle-left"></i></a>-->
+										<img class="userImage current_user_img" src="img/user.jpg" alt="">
+									</div>
+									<div class="userDesc">
+										<h1 class="current_user_name"></h1>
+										<a href="#"><span class="current_user_subscribers">0</span> seguidores</a>
+										<i class="fa fa-map-marker"></i> Goiânia - GO
+									</div>
+									<div class="userFollowers">
+										<em><span class="current_user_subscribers">0</span></em> seguidores<br><br>
+										<em><span class="current_user_follows">0</span></em> seguindo
+									</div>
+									<div class="userResume">
+										<p>
+											<!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.-->
+										</p>
+									</div>
+								</div>
+								<nav class="tabs userTabs">
+									<ul>
+										<li class="active">
+											<a href="#my_account&myAccount"><i class="material-icons">&#xE923;</i><span class="userFeedTabLabel">24</span></a>
+										</li>
+										<li>
+											<a href="#my_account&userPlaylist">
+												<img class="svgIcon icon_on" src="img/icones-09.svg" alt="">
+												<img class="svgIcon icon_off" src="img/icones-09_off.svg" alt="">
+											</a>
+										</li>
+										<li>
+											<a href="#my_account&userFavorites"><i class="fa fa-heart"></i></a>
+										</li>
+									</ul>
+								</nav>
+							</header>
+							
+							<div class="swiper-container account_swiper">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide" data-hash="my_account&myAccount">
+										<section class="userFeed myAccount">
+											<h2>Linha do Tempo</h2>
+											<ul id="my_account_feed">
+												<!--
+												<li>
+													<a href="#my_account&myAccount">
+													<img class="userImage" src="img/user.jpg" alt="">
+													</a>
+													<span>
+													adicionou <a href="#">De janeiro a janeiro</a><br>
+													à playlist <em>Hora de Dormir</em>
+													</span>
+													<span class="feedTime">5h</span>
+												</li>
+												<li>
+													<a href="#user_page">
+													<img class="userImage" src="img/user.jpg" alt="">
+													</a>
+													<span>
+													começou a seguir <a href="#user_page">Maycol Douglas</a>
+													</span>
+													<span class="feedTime">5h</span>
+												</li>
+												<li>
+													<a href="#user_page">
+													<img class="userImage" src="img/user.jpg" alt="">
+													</a>
+													<span>
+													adicionou playlist <a href="#">Hora de Dormir</a>
+													</span>
+													<span class="feedTime">5h</span>
+												</li>
+												<li>
+													<a href="#user_page">
+													<img class="userImage" src="img/user.jpg" alt="">
+													</a>
+													<span>
+													está ouvindo <a href="#">trem-bala - ana vilela</a><br>
+													da playlist <em>Hora de Dormir</em>
+													</span>
+													<span class="feedTime">5h</span>
+												</li>
+												-->
+											</ul>
+										</section>
+									</div>
+									<div class="swiper-slide" data-hash="my_account&userPlaylist">
+										<section class="userPlaylist">
+											<h2>Playlist</h2>
+											<form class="playlistSearch">
+												<i class="fa fa-search"></i>
+												<input type="text">
+											</form>
+											<ul id="my_account_playlists">
+												<!--
+												<li>
+													<a href="#user_page">
+														<div class="playlistThumbs">
+															<img src="img/playlistThumb.jpg" alt="">
+															<img src="img/playlistThumb.jpg" alt="">
+															<img src="img/playlistThumb.jpg" alt="">
+														</div>
+													</a>
+													<span class="userName"><a href="#user_page">Sertanejo TOP</a></span>
+													<span>
+													Criado por Carlos<br>
+													50 músicas<br>
+													150 add esta playlist
+													</span>
+													<span class="addPlaylist added">
+													<i class="fa fa-check"></i>
+													Adicionado
+													</span>
+												</li>
+												<li>
+													<a href="#user_page">
+														<div class="playlistThumbs">
+															<img src="img/playlistThumb.jpg" alt="">
+															<img src="img/playlistThumb.jpg" alt="">
+															<img src="img/playlistThumb.jpg" alt="">
+														</div>
+													</a>
+													<span class="userName"><a href="#user_page">Sertanejo TOP</a></span>
+													<span>
+													Criado por Carlos<br>
+													50 músicas<br>
+													150 add esta playlist
+													</span>
+													<a class="addPlaylist">
+													<i class="fa fa-check"></i>
+													Adicionar
+													</a>
+												</li>
+												-->
+											</ul>
+										</section>
+									</div>
+									<div class="swiper-slide" data-hash="my_account&userFavorites">
+										<section class="userFavorites">
+											<h2>Músicas favoritas</h2>
+											<form class="favoritesSearch" onsubmit="return false;">
+												<i class="fa fa-search"></i>
+												<input type="text">
+											</form>
+											<a href="#add_playlist" class="addAllFavorites addAllFavorites_click">
+											 	<i class="material-icons"></i>Adicionar todas
+											</a>
+											<ul id="my_account_favorites">
+												<!--
+												<li class="">
+													<a href="#user_page">
+														<div class="favoriteThumb">
+															<img src="img/playlistThumb.jpg" alt="">
+														</div>
+													</a>
+													<span class="favoriteName"><a href="#user_page">Simple Worship #1 Mais q vencedor</a></span>
+													<span>
+													392.766 visualizações
+													</span>
+													<span class="addFavorite added">
+													<i class="fa fa-check"></i>
+													Adicionado
+													</span>
+												</li>
+												<li class="">
+													<a href="#user_page">
+														<div class="favoriteThumb">
+															<img src="img/playlistThumb.jpg" alt="">
+														</div>
+													</a>
+													<span class="favoriteName"><a href="#user_page">Simple Worship #1 Mais q vencedor</a></span>
+													<span>
+													392.766 visualizações
+													</span>
+													<span class="addFavorite">
+													<i class="fa fa-check"></i>
+													Adicionar
+													</span>
+												</li>
+												-->
+											</ul>
+										</section>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide" id="notify" data-hash="notify">
+							<section class="notifyFeed">
+								<ul id="notifyFeed_ul">
+									<!--
+									<li>
+										<a href="#user_page">
+										<img class="userImage" src="img/user.jpg" alt="">
+										</a>
+										<span class="userName"><a href="#user_page">Daniel Barros</a></span>
+										<span>
+										começou a seguir você
+										</span>
+										<span class="feedTime">5h</span>
+									</li>
+									<li>
+										<a href="#user_page">
+										<img class="userImage" src="img/user.jpg" alt="">
+										</a>
+										<span class="userName"><a href="#user_page">Eloá Ribeiro</a></span>
+										<span>
+										adicionou sua playlist<br>
+										<a>Hora de Dormir</a> aos favoritos
+										</span>
+										<span class="feedTime">5h</span>
+									</li>
+									<li>
+										<a href="#user_page">
+										<img class="userImage" src="img/user.jpg" alt="">
+										</a>
+										<span class="userName"><a href="#user_page">Sarah Nydya</a></span>
+										<span>
+										começou a seguir você
+										</span>
+										<span class="feedTime">5h</span>
+									</li>
+									-->
+								</ul>
+							</section>
+						</div>
+						<div class="swiper-slide player_slide" id="player" style="overflow:hidden!important" data-hash="player">
+							<img src="img/playlist_img.png" class="change_thumb_player activeSongBg" alt="">
+							<header class="playerHeader">
+								<img src="img/logo.svg" class="float_right" alt="">
+								<h1>
+									<a href="#" class="quit_from_player"><i class="fa fa-angle-left float_left"></i></a>
+									<span class="float_left">
+										Melhores do Indie<br>
+										<small>Playlist de Eloá Ribeiro</small>
+									</span>
+								</h1>
+							</header>
+							<section>
+								<div class="player_section_height">
+									<div class="liveButtonInfo">
+										Clique aqui para transmitir ao vivo 
+										o que você está ouvindo.
+										<i></i>
+									</div>
+									<div class="liveButton_on" id="liveButton_on_left">
+										(<span>(</span>
+									</div>
+									<div class="liveButton_on" id="liveButton_on_right">
+										<span>)</span>)
+									</div>
+									<button class="liveButton" type="button">Ao vivo</button>
+									<img class="activeSong change_thumb_player" src="img/playlist_img.png" alt="">
+									<ul class="playerStatistics">
+										<li id="like_in_player">
+											<img src="img/curtir.svg" class="icon_off" alt="" />
+											<img src="img/curtir_on.svg" class="icon_on" alt="" /><br>
+											<span id="playerStatistics_likes">0</span>
+										</li>
+										<li id="comment_in_player">
+											<a href="#playerComment">
+												<img src="img/msg.svg" alt="" /><br>
+												<span id="playerStatistics_comments">0</span>
+											</a>
+										</li>
+										<li id="favorite_in_player">
+											<img src="img/love.svg" class="icon_off" alt="" />
+											<img src="img/love_on.svg" class="icon_on" alt="" /><br>
+											<span id="playerStatistics_favorites">0</span>
+										</li>
+										<li>
+											<a href="#playerShare">
+												<img src="img/share.svg" alt="" /><br>
+												<span id="playerStatistics_shares">0</span>
+											</a>
+										</li>
+										<li id="add_in_player">
+											<img src="img/check.svg" class="icon_off" alt="" />
+											<img src="img/check_on.svg" class="icon_on" alt="" /><br>
+											<span id="playerStatistics_added">0</span>
+										</li>
+									</ul>
+									<ul class="playerOptions">
+										<li>
+											<img src="img/player_back.svg" class="next_player" alt="">
+										</li>
+										<li>
+											<img src="img/player_pause.svg" class="pause_play_player play_player icon_off" style="width:50px!important" alt="">
+											<img src="img/icones-07.svg" class="pause_play_player pause_player icon_on" style="width:50px!important;margin:7px 0px!important" alt="">
+										</li>
+										<li>
+											<img src="img/player_forward.svg" class="back_player" alt="">
+										</li>
+									</ul>
+									<div class="playerProgressTime">0:00</div>
+									<div class="playerProgressOnMouseUp" id="playerProgressOnMouseUp_player"></div>
+									<div class="playerProgress">
+										<div class="playerViewed" id="playerViewed_player"></div>
+									</div>
+									<div class="playerProgress_bg_bottom"></div>
+								</div>
+								<ul class="playerMusicList"></ul>
+								<div class="playerMusicListMask">
+									<i class="fa fa-angle-down"></i>
+								</div>
+							</section>
+						</div>
+						<div class="swiper-slide" id="player_live" data-hash="player_live">
+							<header class="playerHeader">
+								<button class="liveButton liveButtonActive float_right" type="button" style="background:#424242;padding:0px 7px!important;width:auto!important;margin-left:5px"><i class="fa fa-deaf" aria-hidden="true"></i><span id="playlist_watchers_count_live" style="float:right">0</span></button>
+								<button class="liveButton liveButtonActive float_right" type="button">Ao vivo</button>
+								<h1>
+									<a href="#" class="quit_from_player"><i class="fa fa-angle-left float_left"></i></a>
+									<img class="userImage" id="live_userImage" src="img/user.jpg" style="width:35px!important;height:35px!important;top:8px;position:relative;margin:0px 0px 0px -10px" alt="">
+									<small id="live_userName" style="font-size:14px;top:-5px;position:relative;font-weight:100!important">Eloá Ribeiro</small>
+								</h1>
+							</header>
+							<section>
+								<div class="player_section_height">
+									<button class="liveButton" type="button" style="width:auto!important">ENCERRAR TRANSMISSÃO</button>
+									<img class="activeSong" id="activeSongLive" src="img/playlist_img.png" alt="">
+									<div class="player_music_name" id="player_live_music_name"></div>
+									<div class="playerProgressOnMouseUp"></div>
+									<div class="playerProgress">
+										<div class="playerViewed"></div>
+									</div>
+									<div class="playerProgress_bg_bottom"></div>
+								</div>
+								<ul class="playerMusicList" id="live_comments_ul"></ul>
+								<div class="player_comment">
+									<input type="text" placeholder="Comentar..." id="send_message_to_live_text">
+									<i class="fa fa-send" id="send_message_to_live" style="display:table;position:relative;left:-25px;bottom:-5px;font-size:16px"></i>
+									<img src="img/love.svg" id="save_live_playlist_to_favorites" class="love_off" alt="" />
+									<!--<img src="img/love_on.svg" class="icon_on display_none" id="like_in_live" alt="" />--><br>
+								</div>
+							</section>
+						</div>
+						<div class="swiper-slide" id="playerShare" data-hash="playerShare">
+							<header class="playerHeader">
+								<img src="img/logo.svg" class="float_right" alt="">
+								<h1>
+									<a href="#player"><i class="fa fa-angle-left float_left quit_from_player"></i></a>
+									<span class="float_left">
+										Melhores do Indie<br>
+										<small>Playlist de Eloá Ribeiro</small>
+									</span>
+								</h1>
+							</header>
+							<div class="shareSectionHeader">
+								<h1>Compartilhar</h1>
+								<a class="closeShare" href="#player"><i class="material-icons">&#xE5CD;</i></a>
+							</div>
+							<section class="shareSection">
+								<ul class="shareList">
+									<li class="selected" id="share_on_facebook">
+										<a href="#"><i class="fa fa-facebook"></i></a>
+									</li>
+									<li id="share_on_twitter">
+										<a href="#"><i class="fa fa-twitter"></i></a>
+									</li>
+									<li id="share_on_google">
+										<a href="#"><i class="fa fa-google-plus"></i></a>
+									</li>
+									<li id="share_on_whatsapp">
+										<a href="#"><i class="fa fa-whatsapp"></i></a>
+									</li>
+								</ul>
+								<select>
+									<option value="">Share on your own timeline</option>
+								</select>
+								<div class="userShareComment">
+									<img class="userImage" src="img/user.jpg" alt="">
+									<textarea name="name" rows="5" id="share_text" placeholder="Say something about this"></textarea>
+								</div>
+								<div class="shareDetails">
+									<img class="playlistImage" src="img/playlistThumb.jpg" alt="">
+									<div class="detailsHeader">
+										<img class="logoImage" src="img/logoApp.png" alt="">
+										<span>PLAYLIST Melhores do Indie</span>
+									</div>
+									<p>O único aplicativo que possibilita você ouvir suas músicas preferidas no celular em Offline (sem internet), 100% GRATUITO e sem propagandas.</p>
+								</div>
+								<button class="sharePageButton" type="button" name="button">Compartilhar</button>
+							</section>
+						</div>
+						<div class="swiper-slide" id="playerComment" data-hash="playerComment">
+							<header class="playerHeader">
+								<img src="img/logo.svg" class="float_right" alt="">
+								<h1>
+									<a href="#player" class="quit_from_player"><i class="fa fa-angle-left float_left"></i></a>
+									<span class="float_left">
+										Melhores do Indie<br>
+										<small>Playlist de Eloá Ribeiro</small>
+									</span>
+								</h1>
+							</header>
+							<div class="commentsSectionHeader">
+								<h1>Comentários</h1>
+								<a class="closeShare" href="#player"><i class="material-icons">&#xE5CD;</i></a>
+							</div>
+							<section class="commentsSection">
+								<ul class="commentsList">
+									<!--
+									<li>
+										<a href="#user_page">
+										<img class="userImage" src="img/user.jpg" alt="">
+										</a>
+										<span class="userName"><a href="#user_page">Maycol Douglas</a></span>
+										<div>
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+										</div>
+										<div style="clear:both"></div>
+									</li>
+									-->
+								</ul>
+								<div class="userShareComment">
+									<img class="userImage current_user_img" src="img/user.jpg" alt="">
+									<textarea name="name" rows="5" id="send_comment_text" placeholder="Escreva seu comentário"></textarea>
+								</div>
+								<button class="sharePageButton" id="send_comment" type="button" name="button">Enviar</button>
+							</section>
+						</div>
+						<div class="swiper-slide add_playlist_slide" id="add_playlist" data-hash="add_playlist">
+							<a href="#my_account" style="position:absolute;padding:20px;color:#a9a9a9;font-size:22px;right:0px">X</a>
+							<a href="#add_playlist" class="addAllFavorites" style="padding:16px 20px 10px 20px!important;color:#a9a9a9;font-size:16px">
+							 	<i class="material-icons" style="color:#5a5a5a!important"></i>Adicionar todas
+							</a>
+							<span style="position:relative;padding:6px 20px 20px 20px;text-align:left;display:table;font-size:16px;color:#a9a9a9">
+								Escolha à qual das suas playlists 
+								você quer adicionar as músicas 
+								favoritas <span id="user_name_with_do_da"></span>
+							</span>
+							<ul id="add_favorites_ul"></ul>
+							<div class="add_favorites_form_div">
+								<input type="text" id="add_playlist_text" placeholder="Digite o nome da sua nova playlist">
+								<button id="add_playlist_btn">CRIAR</button>
+							</div>
+						</div>
+						<div class="swiper-slide user_page_slide" id="user_page" data-hash="user_page">
+							<header class="userHeader">
+								<div class="userInfos">
+									<div class="buttonBack">
+										<a href="#feed"><i class="fa fa-angle-left"></i></a>
+										<img class="userImage" id="user_img_" src="img/user.jpg" alt="">
+									</div>
+									<div class="userDesc">
+										<h1 id="user_name">Maycol Douglas</h1>
+										<a href="#"><span id="user_subscribers">0</span> seguidores</a>
+										<i class="fa fa-map-marker"></i> Goiânia - GO
+									</div>
+									<div class="userFollow">
+										<button class="followButton" type="button">seguir</button>
+									</div>
+									<div class="userResume">
+										<p>
+											<!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.-->
+										</p>
+									</div>
+								</div>
+								<nav class="tabs userTabs">
+									<ul>
+										<li class="active">
+											<a href="#user_page&userFeed"><i class="material-icons">&#xE923;</i><span class="userFeedTabLabel">24</span></a>
+										</li>
+										<li>
+											<a href="#user_page&userPlaylist"><i class="fa fa-music"></i></a>
+										</li>
+										<li>
+											<a href="#user_page&userFavorites"><i class="fa fa-heart"></i></a>
+										</li>
+									</ul>
+								</nav>
+							</header>
+							
+							<div class="swiper-container user_swiper">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide" data-hash="user_page&userFeed">
+										<section class="userFeed">
+											<h2>Linha do Tempo</h2>
+											<ul id="user_page_feed">
+												<!--
+												<li>
+													<a href="#user_page">
+													<img class="userImage" src="img/user.jpg" alt="">
+													</a>
+													<span class="userName"><a href="#user_page">Daniel Barros</a></span>
+													<span>
+													adicionou <a href="#">De janeiro a janeiro</a><br>
+													à playlist <em>Hora de Dormir</em>
+													</span>
+													<span class="feedTime">5h</span>
+												</li>
+												<li>
+													<a href="#user_page">
+													<img class="userImage" src="img/user.jpg" alt="">
+													</a>
+													<span class="userName"><a href="#user_page">Sarah Nydya</a></span>
+													<span>
+													começou a seguir <a href="#user_page">Maycol Douglas</a>
+													</span>
+													<span class="feedTime">5h</span>
+												</li>
+												<li>
+													<a href="#user_page">
+													<img class="userImage" src="img/user.jpg" alt="">
+													</a>
+													<span class="userName"><a href="#user_page">Maycol Douglas</a></span>
+													<span>
+													adicionou playlist <a href="#">Hora de Dormir</a>
+													</span>
+													<span class="feedTime">5h</span>
+												</li>
+												<li>
+													<a href="#user_page">
+													<img class="userImage" src="img/user.jpg" alt="">
+													</a>
+													<span class="userName"><a href="#user_page">Eloá Ribeiro</a></span>
+													<span>
+													está ouvindo <a href="#">trem-bala - ana vilela</a><br>
+													da playlist <em>Hora de Dormir</em>
+													</span>
+													<span class="feedTime">5h</span>
+												</li>
+												-->
+											</ul>
+										</section>
+									</div>
+									<div class="swiper-slide" data-hash="user_page&userPlaylist">
+										<section class="userPlaylist">
+											<h2>Playlist</h2>
+											<form class="playlistSearch">
+												<i class="fa fa-search"></i>
+												<input type="text">
+											</form>
+											<ul id="user_page_playlists">
+												<!--
+												<li>
+													<a href="#user_page">
+														<div class="playlistThumbs">
+															<img src="img/playlistThumb.jpg" alt="">
+															<img src="img/playlistThumb.jpg" alt="">
+															<img src="img/playlistThumb.jpg" alt="">
+														</div>
+													</a>
+													<span class="userName"><a href="#user_page">Sertanejo TOP</a></span>
+													<span>
+													Criado por Carlos<br>
+													50 músicas<br>
+													150 add esta playlist
+													</span>
+													<span class="addPlaylist added">
+													<i class="fa fa-check"></i>
+													Adicionado
+													</span>
+												</li>
+												<li>
+													<a href="#user_page">
+														<div class="playlistThumbs">
+															<img src="img/playlistThumb.jpg" alt="">
+															<img src="img/playlistThumb.jpg" alt="">
+															<img src="img/playlistThumb.jpg" alt="">
+														</div>
+													</a>
+													<span class="userName"><a href="#user_page">Sertanejo TOP</a></span>
+													<span>
+													Criado por Carlos<br>
+													50 músicas<br>
+													150 add esta playlist
+													</span>
+													<a class="addPlaylist">
+													<i class="fa fa-check"></i>
+													Adicionar
+													</a>
+												</li>
+												-->
+											</ul>
+										</section>
+									</div>
+									<div class="swiper-slide" data-hash="user_page&userFavorites">
+										<section class="userFavorites">
+											<h2>Músicas favoritas</h2>
+											<form class="favoritesSearch" onsubmit="return false;">
+												<i class="fa fa-search"></i>
+												<input type="text">
+											</form>
+											<ul id="user_page_favorites">
+												<!--
+												<li>
+													<a href="#user_page">
+														<div class="favoriteThumb">
+															<img src="img/playlistThumb.jpg" alt="">
+														</div>
+													</a>
+													<span class="favoriteName"><a href="#user_page">Simple Worship #1 Mais q vencedor</a></span>
+													<span>
+													392.766 visualizações
+													</span>
+													<span class="addFavorite added">
+													<i class="fa fa-check"></i>
+													Adicionado
+													</span>
+												</li>
+												<li>
+													<a href="#user_page">
+														<div class="favoriteThumb">
+															<img src="img/playlistThumb.jpg" alt="">
+														</div>
+													</a>
+													<span class="favoriteName"><a href="#user_page">Simple Worship #1 Mais q vencedor</a></span>
+													<span>
+													392.766 visualizações
+													</span>
+													<span class="addFavorite">
+													<i class="fa fa-check"></i>
+													Adicionar
+													</span>
+												</li>
+												-->
+											</ul>
+										</section>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer class="appFooter">
+				<nav>
+					<ul>
+						<li class="active">
+							<a href="#feed">
+								<img src="img/icones-03.svg" class="icon_on" alt="Feed">
+								<img src="img/icones-03_off.svg" class="icon_off" alt="Feed">
+								Feed
+							</a>
+						</li>
+						<li>
+							<a href="#search">
+								<img src="img/icones-04.svg" class="icon_on" alt="Pesquisar">
+								<img src="img/icones-04_off.svg" class="icon_off" alt="Pesquisar">
+								Pesquisar
+							</a>
+						</li>
+						<li>
+							<a href="#my_account">
+								<img src="img/icones-05.svg" class="icon_on" alt="Minha conta">
+								<img src="img/icones-05_off.svg" class="icon_off" alt="Pesquisar">
+								Minha conta
+							</a>
+						</li>
+						<li>
+							<a href="#notify">
+								<img src="img/icones-06.svg" class="icon_on" alt="Notificações">
+								<img src="img/icones-06_off.svg" class="icon_off" alt="Pesquisar">
+								Notificações
+							</a>
+						</li>
+						<li>
+							<a href="#player">
+								<img src="img/icones-07.svg" alt="Player">
+								Player
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</footer>
+			<div id="player_yt"></div>
+		</div>
+		<script type="text/javascript">
+			window.onerror	= function(what, line, file){ alert(what+'; '+line+'; '+file); }
+		</script>
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/swiper.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/SocialSharing.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/script.js"></script>
+	</body>
+</html>

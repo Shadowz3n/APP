@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Youoff</name>
+    <description>
+		Aplicativo de músicas
+    </description>
+    <author email="contato@agenciads3.com.br" href="https://www.agenciads3.com.br">
+        Agência DS3
+    </author>
+    <icon src="www/img/icon.png" />
+    <icon gap:platform="android" gap:qualifier="ldpi" src="www/img/icon.png" />
+    <icon gap:platform="android" gap:qualifier="mdpi" src="www/img/icon.png" />
+    <icon gap:platform="android" gap:qualifier="hdpi" src="www/img/icon.png" />
+    <icon gap:platform="android" gap:qualifier="xhdpi" src="www/img/icon.png" />
+    <icon gap:platform="blackberry" src="www/img/icon.png" />
+    <icon gap:platform="blackberry" gap:state="hover" src="www/img/icon.png" />
+    <icon gap:platform="ios" height="57" src="www/img/icon.png" width="57" />
+    <icon gap:platform="ios" height="72" src="www/img/icon.png" width="72" />
+    <icon gap:platform="ios" height="114" src="www/img/icon.png" width="114" />
+    <icon gap:platform="ios" height="144" src="www/img/icon.png" width="144" />
+    <icon gap:platform="webos" src="www/img/icon.png" />
+    <icon gap:platform="winphone" src="www/img/icon.png" />
+    <icon gap:platform="winphone" gap:role="background" src="www/img/icon.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="www/img/icon.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="www/img/icon.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="www/img/icon.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="www/img/icon.png" />
+    <gap:splash gap:platform="blackberry" src="www/img/icon.png" />
+    <gap:splash gap:platform="ios" height="480" src="www/img/icon.png" width="320" />
+    <gap:splash gap:platform="ios" height="960" src="www/img/icon.png" width="640" />
+    <gap:splash gap:platform="ios" height="1136" src="www/img/icon.png" width="640" />
+    <gap:splash gap:platform="ios" height="1024" src="www/img/icon.png" width="768" />
+    <gap:splash gap:platform="ios" height="768" src="www/img/icon.png" width="1024" />
+    <gap:splash gap:platform="winphone" src="www/img/icon.png" />
+    <gap:config-file parent="CFBundleShortVersionString" platform="ios">
+        <string>100</string>
+    </gap:config-file>
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-navigation href="https://*youtube.com/*" />
+    <preference name="loadUrlTimeoutValue" value="700000" />
+    <preference name="permissions" value="none" />
+    <preference name="orientation" value="default" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="false" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="false" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="android-installLocation" value="auto" />
+</widget>

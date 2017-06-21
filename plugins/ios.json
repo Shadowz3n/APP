@@ -1,0 +1,30 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-facebook": {
+            "FACEBOOK_APP_ID": "1500867896630018",
+            "FACEBOOK_DISPLAY_NAME": "Youoff",
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "cordova-plugin-googleplus": {
+            "REVERSED_CLIENT_ID": "com.googleusercontent.apps.801733331523-e1sjq1hfldohho0fcuqrbdjqk9q7pc39",
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "nl.x-services.plugins.socialsharing": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        }
+    },
+    "dependent_plugins": {}
+}
