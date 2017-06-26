@@ -458,6 +458,7 @@ function startAPP(){
 				document.getElementById("feed_live").innerHTML	= "";
 				if(data.video_live.length>0){
 					for(var i=0;i<data.video_live.length;i++){
+						
 						document.getElementById("feed_live").innerHTML	+= '<li class="musicItemLive" data-ul_id="'+data.video_live[i].ul_id+'" data-u_name="'+data.video_live[i].name+'" data-u_id_img="'+data.video_live[i].img+'" data-title="'+data.video_live[i].ul_videoname+'" data-playlist="'+data.video_live[i].ul_playlist_id+'" data-videoid="'+data.video_live[i].ul_video_id+'" data-thumb="'+data.video_live[i].ul_videoimg+'">'+
 																				'<a>'+
 																					'<img class="userImage" src="'+data.video_live[i].img+'" alt="">'+
@@ -473,14 +474,14 @@ function startAPP(){
 				if(data.video_log.length>0){
 					for(var i=0;i<data.video_log.length;i++){
 						document.getElementById("feed_ul").innerHTML	+= '<li>'+
-																				'<a href="#user_page&u_id='+data.video_log[i].u_id+'">'+
+																				'<a class="playlistItem" data-u_name="'+data.video_log[i].name+'" data-title="'+data.video_log[i].pw_playlist_name+'" data-playlist="'+data.video_log[i].pw_playlist_id+'" data-thumb="'+data.video_log[i].playlist_img+'">'+
 																					'<img class="userImage" src="'+data.video_log[i].img+'" alt="">'+
 																				'</a>'+
 																				'<span class="userName">'+
-																					'<a href="#user_page&u_id='+data.video_log[i].u_id+'">'+data.video_log[i].name+'</a>'+
+																					'<a class="playlistItem" data-u_name="'+data.video_log[i].name+'" data-title="'+data.video_log[i].pw_playlist_name+'" data-playlist="'+data.video_log[i].pw_playlist_id+'" data-thumb="'+data.video_log[i].playlist_img+'">'+data.video_log[i].name+'</a>'+
 																				'</span>'+
-																				'<span class="user_listening playlistItem" data-title="'+data.video_log[i].pw_playlist_name+'" data-playlist="'+data.video_log[i].pw_playlist_id+'" data-thumb="'+data.video_log[i].playlist_img+'">'+
-																					'está ouvindo a playlist <a class="playlistItem" data-title="'+data.video_log[i].pw_playlist_name+'" data-playlist="'+data.video_log[i].pw_playlist_id+'" data-thumb="'+data.video_log[i].playlist_img+'">'+data.video_log[i].pw_playlist_name+'</a><br>'+
+																				'<span class="user_listening playlistItem" data-u_name="'+data.video_log[i].name+'" data-title="'+data.video_log[i].pw_playlist_name+'" data-playlist="'+data.video_log[i].pw_playlist_id+'" data-thumb="'+data.video_log[i].playlist_img+'">'+
+																					'está ouvindo a playlist <a class="playlistItem" data-u_name="'+data.video_log[i].name+'" data-title="'+data.video_log[i].pw_playlist_name+'" data-playlist="'+data.video_log[i].pw_playlist_id+'" data-thumb="'+data.video_log[i].playlist_img+'">'+data.video_log[i].pw_playlist_name+'</a><br>'+
 																				'</span>'+
 																				'<span class="feedTime">'+timeToDifference(Number(data.video_log[i].time)*1000)+'</span>'+
 																			'</li>';
@@ -885,9 +886,15 @@ function startAPP(){
 		});
 	});
 	
+	/* On tab on document 
+	document.addEventListener("click", function(event){
+		alert(123);
+	});*/
+	
 	/* Add to favorite and play music index button */
-	("touchend".split(" ")).forEach(function(e){
+	("click".split(" ")).forEach(function(e){
 		document.addEventListener(e, function(event){
+			
 			if(event.target.classList.contains("addFavorite") || event.target.parentNode.classList.contains("addFavorite")){
 				thisMusic	= (event.target.classList.contains("addFavorite"))? event.target:event.target.parentNode,
 				thisVideoId	= thisMusic.getAttribute("data-videoid");
@@ -905,6 +912,14 @@ function startAPP(){
 				toggleClass(thisMusic, "added");
 			}
 			
+			if(event.target.classList.contains("playlistItem")){
+				feed_Item				= event.target;
+				music_title				= feed_Item.getAttribute("data-title");
+				playlist				= feed_Item.getAttribute("data-playlist");
+				music_img				= feed_Item.getAttribute("data-thumb");
+				document.location.hash	= "#player";
+			}
+			
 			if(event.target.classList.contains("musicItemLive") || event.target.parentNode.classList.contains("musicItemLive") || event.target.parentNode.parentNode.classList.contains("musicItemLive")){
 				var musicItemLive		= (event.target.classList.contains("musicItemLive"))? event.target:event.target.parentNode;
 				musicItemLive			= (event.target.parentNode.parentNode.classList.contains("musicItemLive"))? event.target.parentNode.parentNode:musicItemLive;
@@ -915,7 +930,8 @@ function startAPP(){
 				music_id				= musicItemLive.getAttribute("data-videoid");
 				music_img				= musicItemLive.getAttribute("data-thumb");
 				playlist				= musicItemLive.getAttribute("data-playlist");
-				ul_id					= musicItemLive.getAttribute("data-ul_id");
+				ul_id					= musicItemLive.getAttribute("data-ul_id");				
+				$("#liveButtonTransmissao").style.opacity	= 0;
 				document.location.hash	= "#player_live";
 			}
 			
@@ -1343,10 +1359,13 @@ function startAPP(){
 			var thisHash	= document.location.hash.replace("#","").split("&");
 			activeClass		= document.querySelectorAll(".app_swiper .active, .appFooter .active");
 			for(var i=0;i<activeClass.length;i++){ activeClass[i].className = removeClass(activeClass[i], "active"); }
-			aLinks			= document.querySelectorAll("a[href='#"+thisHash[0]+"'], a[href='"+document.location.hash+"']");
-			for(var i=0;i<aLinks.length;i++){
-				var parent	= aLinks[i].parentNode;
-				if(parent.tagName=="LI") parent.className = "active";
+			
+			if(document.location.hash.length<30){
+				aLinks			= document.querySelectorAll("a[href='#"+thisHash[0]+"'], a[href='"+document.location.hash+"']");
+				for(var i=0;i<aLinks.length;i++){
+					var parent	= aLinks[i].parentNode;
+					if(parent.tagName=="LI") parent.className = "active";
+				}
 			}
 			principalSlides	= document.querySelectorAll(".app_swiper>.swiper-wrapper>.swiper-slide");
 			for(var i=0;i<principalSlides.length;i++){
@@ -1458,6 +1477,11 @@ function startAPP(){
 						ul_id	= "";
 						player.cueVideoById("u1zgFlCw8Aw", 10, "small");
 						player.cuePlaylist({'list':playlist});
+						
+						$("#playlist_name").innerHTML	= music_title;
+						//console.log(live_u_name);
+						//$("#playlist_user_name_text").innerHTML		= (live_u_name==undefined)? "":"Playlist de "+live_u_name;
+						
 						$(".change_thumb_player")[0].setAttribute("src", music_img);
 						$(".change_thumb_player")[1].setAttribute("src", music_img);
 						$(".playerMusicList")[0].innerHTML	= "<img src='img/loading.svg' style='width:45px;display:table;margin-top:25px;margin-left:auto;margin-right:auto' alt=''>";
@@ -1479,7 +1503,7 @@ function startAPP(){
 					player.cuePlaylist({'list':playlist, 'listType':'playlist'});
 				}
 			}else{
-				if(live_player_active) player.stopVideo();
+				//if(live_player_active) player.stopVideo();
 			}
 		
 			if(thisHash[0]=="player" || thisHash[0]=="player_live" || thisHash[0]=="playerShare" || thisHash[0]=="playerComment" || thisHash[0]=="add_playlist"){
