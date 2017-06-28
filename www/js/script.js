@@ -132,7 +132,7 @@ function onYouTubeIframeAPIReady(){
 							if(data.videos){
 								for(var i=0;i<data.videos.length;i++){
 									currentPlaylist.push(data.videos[i].videoId);
-									$(".playerMusicList")[0].innerHTML	+= '<li class="active playlistIndex" data-playlist="'+playlist+'" data-title="'+data.videos[i].title+'" data-thumb="'+data.videos[i].thumb+'" data-videoid="'+data.videos[i].videoId+'" data-index="'+i+'">'+
+									$(".playerMusicList")[0].innerHTML	+= '<li class="active playlistIndex" data-playlist="'+playlist+'" data-title="'+data.videos[i].title+'" data-thumb="'+data.videos[i].thumb+'" data-videoid="'+data.videos[i].videoId+'" data-index="'+i+'" '+(music_id==data.videos[i].videoId? "style='background:#171717!important'":"")+' >'+
 																			Number(Number(i)+1)+'. '+data.videos[i].title.substring(0, 25)+'..'+
 																			'<span>'+
 																				data.videos[i].duration+

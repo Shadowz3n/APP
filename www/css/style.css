@@ -66,6 +66,7 @@ input,select,button:focus{outline:1px solid #585858}
 .userFeed > h2{border-bottom:1px solid #424242;color:#656565;font-size:1em;font-weight:400;padding:8px 15px;}
 .userFeed > ul{list-style:none;}
 .userFeed > ul > li{border-bottom:1px solid #424242;clear:both;height:70px;padding:10px;position:relative;}
+.userFeed > ul > li:hover{background:#171717!important}
 .userFeed > ul > li > a > img{float:left;margin:0 10px 0 0;}
 .userFeed > ul > li > span{color:#656565;display:block;font-size:0.9em;}
 .userFeed > ul > li > span > a{color:#c93b3b;}
