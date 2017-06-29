@@ -368,7 +368,7 @@ function startAPP(){
 															'<span class="userName"><a href="#user_page">'+data[i].name+'</a></span>'+
 															'<span>'+
 																'adicionou sua playlist<br>'+
-																'<a>'+data[i].p_name+'</a> aos favoritos'+
+																'<a>'+data[i].p_name+'</a>'+
 															'</span>'+
 															'<span class="feedTime">'+timeToDifference(Number(data[i].time)*1000)+'</span>'+
 														'</li>';
