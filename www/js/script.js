@@ -409,7 +409,7 @@ function startAPP(){
 				}
 				for(var i=0;i<data.history.length;i++){
 					$("#"+id+"_feed").innerHTML	+= '<li>'+
-														'<a href="#my_account&myAccount">'+
+														'<a class="playlistItem" data-title="'+data.history[i].pw_playlist_name+'" data-playlist="'+data.history[i].pw_playlist_id+'" data-thumb="'+data.history[i].pw_playlist_img+'" href="#my_account&myAccount">'+
 															'<img class="userImage" src="'+data.history[i].u_img+'" alt="">'+
 														'</a>'+
 														'<span>'+
@@ -420,8 +420,8 @@ function startAPP(){
 				}
 				
 				for(var i=0;i<data.playlists.length;i++){
-					$("#"+id+"_playlists").innerHTML	+= '<li class="">'+
-																'<a href="#player&playlist='+data.playlists[i].p_playlist_id+'">'+
+					$("#"+id+"_playlists").innerHTML	+= '<li>'+
+																'<a href="#player&playlist='+data.playlists[i].p_playlist_id+'" class="live_u_name playlistItem" data-u_name="'+data.playlists[i].u_name+'" data-title="'+data.history[i].pw_playlist_name+'" data-playlist="'+data.history[i].p_playlist_id+'" data-thumb="'+data.history[i].pw_playlist_img+'">'+
 																	'<div class="favoriteThumb">'+
 																		'<img src="'+data.playlists[i].pw_playlist_img+'" alt="">'+
 																	'</div>'+
@@ -927,6 +927,11 @@ function startAPP(){
 					});
 				}
 				toggleClass(thisMusic, "added");
+			}
+			
+			if(event.target.classList.contains("live_u_name")){
+				clicked_item			= event.target;
+				live_u_name				= clicked_item.getAttribute("data-u_name");
 			}
 			
 			if(event.target.classList.contains("playlistItem")){
