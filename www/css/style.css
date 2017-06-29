@@ -337,7 +337,7 @@ color:white}
 .favoriteThumb img{max-width:100%;height:auto;padding-right:5%}
 .favoriteName{float:left;width:55%;color:#656565;font-size:1.2em}
 .feed_live_scroll{width:100%;display:block;overflow-x:scroll}
-.feed_live_scroll ul{width:1000%;margin:0px;padding:0px;list-style:none;display:table}
+.feed_live_scroll ul{width:250%;margin:0px;padding:0px;list-style:none;display:table}
 .feed_live_scroll ul li{float:left;width:75px;text-align:center}
 .feed_live_scroll ul li a{display:block;width:100%;height:100%;text-align:center}
 .feed_live_scroll ul li a{font-size:10px}
