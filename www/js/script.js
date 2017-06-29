@@ -402,6 +402,7 @@ function startAPP(){
 					$("#user_name").innerHTML			= data.info[0].name;
 					$("#user_subscribers").innerHTML	= data.info[0].subscribers;
 					$("#user_img_").setAttribute("src", data.info[0].u_img);
+					$(".current_user_follows")[0].innerHTML	= data.info[0].following;
 					if(data.info[0].following>0){
 						$(".followButton")[0].innerHTML	= "deixar de seguir";
 					}
@@ -429,12 +430,12 @@ function startAPP(){
 																	data.playlists[i].p_name+
 																'</span>'+
 																'<span>'+
-																data.playlists[i].views+' visualizações'+
+																	data.playlists[i].views+' visualizações'+
 																'</span>'+
-																'<span class="addFavorite" data-videoimg="'+data.playlists[i].p_playlist_img+'" data-videoname="'+data.playlists[i].p_name+'" data-videoid="'+data.playlists[i].p_playlist_id+'">'+
+																'<!--<span class="addFavorite" data-videoimg="'+data.playlists[i].p_playlist_img+'" data-videoname="'+data.playlists[i].p_name+'" data-videoid="'+data.playlists[i].p_playlist_id+'">'+
 																	'<i class="fa fa-check"></i>'+
 																	'Adicionado'+
-																'</span>'+
+																'</span>-->'+
 															'</li>';
 				}
 				
@@ -516,7 +517,7 @@ function startAPP(){
 		$(".current_user_name")[0].innerHTML	=  window.localStorage.name;
 		$(".current_user_subscribers")[0].innerHTML	= (window.localStorage.subscribers)? window.localStorage.subscribers:0;
 		$(".current_user_subscribers")[1].innerHTML	= (window.localStorage.subscribers)? window.localStorage.subscribers:0;
-		$(".current_user_follows")[0].innerHTML	= window.localStorage.subscribers;
+		$(".current_user_follows")[0].innerHTML	= 0;
 		document.location.hash	= "#feed";
 	}else{
 		var app_login		= document.createElement("div");
@@ -608,7 +609,7 @@ function startAPP(){
 				window.localStorage.follows		= data.follows;
 				$(".current_user_subscribers")[0].innerHTML	= window.localStorage.subscribers;
 				$(".current_user_subscribers")[1].innerHTML	= window.localStorage.subscribers;
-				$(".current_user_follows")[0].innerHTML	= window.localStorage.subscribers;
+				$(".current_user_follows")[0].innerHTML	= 0;
 				window.location.reload(true);
 				//document.location.hash	= "#feed";
 			}
