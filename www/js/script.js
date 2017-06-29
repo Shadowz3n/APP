@@ -422,7 +422,7 @@ function startAPP(){
 					$("#"+id+"_playlists").innerHTML	+= '<li class="">'+
 																'<a href="#player&playlist='+data.playlists[i].p_playlist_id+'">'+
 																	'<div class="favoriteThumb">'+
-																		'<img src="'+data.playlists[i].p_playlist_img+'" alt="">'+
+																		'<img src="'+data.playlists[i].pw_playlist_img+'" alt="">'+
 																	'</div>'+
 																'</a>'+
 																'<span class="favoriteName">'+
