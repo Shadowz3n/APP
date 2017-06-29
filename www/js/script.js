@@ -403,7 +403,6 @@ function startAPP(){
 					$("#user_subscribers").innerHTML	= data.info[0].subscribers;
 					$("#user_img_").setAttribute("src", data.info[0].u_img);
 					$(".current_user_follows")[0].innerHTML	= data.info[0].follows;
-					
 					$(".current_user_subscribers")[0].innerHTML	= data.info[0].subscribers;
 					$(".current_user_subscribers")[1].innerHTML	= data.info[0].subscribers;
 					
