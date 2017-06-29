@@ -19,7 +19,7 @@
 //deviceready
 var app_swiper, search_swiper, account_swiper, user_swiper, player, 
 	ytAjax=false, playlist="", playlist_musics=[], currentPlaylist=[], music_id="", music_title="", music_img="", ul_id="",
-	music_duration="", addToFavoritesList=[], live_player_active=false;
+	music_duration="", addToFavoritesList=[], live_player_active=false, live_u_name;
 
 /* Youtube JS */
 var tag = document.createElement('script');
@@ -1496,8 +1496,7 @@ function startAPP(){
 						player.cuePlaylist({'list':playlist});
 						
 						$("#playlist_name").innerHTML	= music_title;
-						//console.log(live_u_name);
-						//$("#playlist_user_name_text").innerHTML		= (live_u_name==undefined)? "":"Playlist de "+live_u_name;
+						$("#playlist_user_name_text").innerHTML		= (live_u_name==undefined)? "":"Playlist de "+live_u_name;
 						
 						$(".change_thumb_player")[0].setAttribute("src", music_img);
 						$(".change_thumb_player")[1].setAttribute("src", music_img);
