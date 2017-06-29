@@ -344,19 +344,35 @@ function startAPP(){
 				$("#notifyFeed_ul").innerHTML	= "<img src='img/loading.svg' style='width:45px;display:table;margin-top:25px;margin-left:auto;margin-right:auto' alt=''>";
 			}
 		}, function(data){
-			if(data.followers){
-				$("#notifyFeed_ul").innerHTML	= "";
-				for(var i=0;i<data.followers.length;i++){
-					$("#notifyFeed_ul").innerHTML	+=	'<li>'+
-															'<a href="#user_page&u_id='+data.followers[i].u_id+'">'+
-																'<img class="userImage" src="'+data.followers[i].u_img+'" alt="">'+
+			$("#notifyFeed_ul").innerHTML	= "";
+			if(data.length>0){
+				for(var i=0;i<data.length;i++){
+					if(data[i].array_type=="followers"){
+						$("#notifyFeed_ul").innerHTML	+=	'<li>'+
+															'<a href="#user_page&u_id='+data[i].u_id+'">'+
+																'<img class="userImage" src="'+data[i].u_img+'" alt="">'+
 															'</a>'+
-															'<span class="userName"><a href="#user_page&u_id='+data.followers[i].u_id+'">'+data.followers[i].name+'</a></span>'+
+															'<span class="userName"><a href="#user_page&u_id='+data[i].u_id+'">'+data[i].name+'</a></span>'+
 															'<span>'+
 																'começou a seguir você'+
 															'</span>'+
-															'<span class="feedTime">'+timeToDifference(Number(data.followers[i].uf_time)*1000)+'</span>'+
+															'<span class="feedTime">'+timeToDifference(Number(data[i].time)*1000)+'</span>'+
 														'</li>';
+					}
+					
+					if(data[i].array_type=="added_my_playlists"){
+						$("#notifyFeed_ul").innerHTML	+=	'<li>'+
+															'<a href="#user_page">'+
+																'<img class="userImage" src="'+data[i].u_img+'" alt="">'+
+															'</a>'+
+															'<span class="userName"><a href="#user_page">'+data[i].name+'</a></span>'+
+															'<span>'+
+																'adicionou sua playlist<br>'+
+																'<a>'+data[i].p_name+'</a> aos favoritos'+
+															'</span>'+
+															'<span class="feedTime">'+timeToDifference(Number(data[i].time)*1000)+'</span>'+
+														'</li>';
+					}
 				}
 			}
 		});
@@ -1479,8 +1495,8 @@ function startAPP(){
 						player.cuePlaylist({'list':playlist});
 						
 						$("#playlist_name").innerHTML	= music_title;
-						//console.log(live_u_name);
-						//$("#playlist_user_name_text").innerHTML		= (live_u_name==undefined)? "":"Playlist de "+live_u_name;
+						console.log(live_u_name);
+						$("#playlist_user_name_text").innerHTML		= (live_u_name==undefined)? "":"Playlist de "+live_u_name;
 						
 						$(".change_thumb_player")[0].setAttribute("src", music_img);
 						$(".change_thumb_player")[1].setAttribute("src", music_img);
