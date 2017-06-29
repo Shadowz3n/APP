@@ -443,12 +443,12 @@ function startAPP(){
 				
 				for(var i=0;i<data.favorites.length;i++){
 					$("#"+id+"_favorites").innerHTML	+= '<li>'+
-																'<a class="playlistItem" data-title="'+data.history[i].pw_playlist_name+'" data-playlist="'+data.history[i].playlist_id+'" data-thumb="'+data.history[i].pw_playlist_img+'">'+
+																'<a class="playlistItem" data-title="'+data.favorites[i].pw_playlist_name+'" data-playlist="'+data.favorites[i].playlist_id+'" data-thumb="'+data.favorites[i].pw_playlist_img+'">'+
 																	'<div class="favoriteThumb">'+
 																		'<img src="'+data.favorites[i].pw_playlist_img+'" alt="">'+
 																	'</div>'+
 																'</a>'+
-																'<span class="favoriteName playlistItem" data-title="'+data.history[i].pw_playlist_name+'" data-playlist="'+data.history[i].playlist_id+'" data-thumb="'+data.history[i].pw_playlist_img+'">'+
+																'<span class="favoriteName playlistItem" data-title="'+data.favorites[i].pw_playlist_name+'" data-playlist="'+data.favorites[i].playlist_id+'" data-thumb="'+data.favorites[i].pw_playlist_img+'">'+
 																	'<a>'+
 																		data.favorites[i].pw_playlist_name+
 																	'</a>'+
