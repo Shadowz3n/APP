@@ -1435,7 +1435,7 @@ function startAPP(){
 			
 			if(thisHash[0]=="add_playlist"){
 				if(addToFavoritesList.length==0){
-					document.location.hash			= "#my_account";
+					window.history.back();
 				}
 				$("#add_favorites_ul").innerHTML	= "";
 				for(var i=0;i<addToFavoritesList.length;i++){
