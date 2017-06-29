@@ -497,7 +497,7 @@ function startAPP(){
 																					'<a class="playlistItem" data-u_name="'+data.video_log[i].name+'" data-title="'+data.video_log[i].pw_playlist_name+'" data-playlist="'+data.video_log[i].pw_playlist_id+'" data-thumb="'+data.video_log[i].playlist_img+'">'+data.video_log[i].name+'</a>'+
 																				'</span>'+
 																				'<span class="user_listening playlistItem" data-u_name="'+data.video_log[i].name+'" data-title="'+data.video_log[i].pw_playlist_name+'" data-playlist="'+data.video_log[i].pw_playlist_id+'" data-thumb="'+data.video_log[i].playlist_img+'">'+
-																					'está ouvindo a playlist <a class="playlistItem" data-u_name="'+data.video_log[i].name+'" data-title="'+data.video_log[i].pw_playlist_name+'" data-playlist="'+data.video_log[i].pw_playlist_id+'" data-thumb="'+data.video_log[i].playlist_img+'">'+data.video_log[i].pw_playlist_name+'</a><br>'+
+																					'está ouvindo a playlist <a class="playlistItem" data-u_name="'+data.video_log[i].name+'" data-title="'+data.video_log[i].pw_playlist_name+'" data-playlist="'+data.video_log[i].pw_playlist_id+'" data-thumb="'+data.video_log[i].playlist_img+'">'+data.video_log[i].pw_playlist_name+'</a>'+((data.video_log[i].user_playlist_name)? " de "+data.video_log[i].user_playlist_name:"")+'<br>'+
 																				'</span>'+
 																				'<span class="feedTime">'+timeToDifference(Number(data.video_log[i].time)*1000)+'</span>'+
 																			'</li>';
