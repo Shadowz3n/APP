@@ -361,7 +361,7 @@ function startAPP(){
 					}
 					
 					if(data[i].array_type=="added_my_playlists"){
-						$("#notifyFeed_ul").innerHTML	+=	'<li>'+
+						$("#notifyFeed_ul").innerHTML	+=	'<li class="playlistItem" data-u_name="'+data[i].name+'" data-title="'+data[i].p_name+'" data-playlist="'+data[i].pa_playlist_id+'" data-thumb="'+data[i].pw_playlist_img+'">'+
 															'<a href="#user_page">'+
 																'<img class="userImage" src="'+data[i].u_img+'" alt="">'+
 															'</a>'+
