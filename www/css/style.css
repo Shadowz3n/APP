@@ -50,7 +50,7 @@ input,select,button:focus{outline:1px solid #585858}
 .headerAside > nav > ul{list-style:none;}
 .headerAside > nav > ul > li{display:inline-block;}
 .headerAside > nav > ul > li > a{color:#fdfdfd;display:block;font-size:2em;margin:0 0 0 10px;padding:10px;}
-.liveSection{background:#2b2b2b url(../img/liveTag.jpg) no-repeat center left;background-size:auto 100%;display:block;overflow:hidden;padding:5px 10px 10px 30px;width:100%;height:75px}
+.liveSection{background:#2b2b2b url(../img/liveTag.jpg) no-repeat center left;background-size:auto 100%;display:block;padding:5px 10px 10px 30px;width:100%;height:75px}
 .liveSection > ul{display:block;list-style:none;overflow-x:auto;width:1000%;}
 .liveSection > ul > li{display:inline-block;margin:0 10px;}
 .liveSection > ul > li > a{color:#fdfdfd;display:block;font-size:10px;width:100%;}
@@ -336,4 +336,9 @@ color:white}
 .favoriteThumb{width:40%;float:left}
 .favoriteThumb img{max-width:100%;height:auto;padding-right:5%}
 .favoriteName{float:left;width:55%;color:#656565;font-size:1.2em}
-
+.feed_live_scroll{width:100%;display:block;overflow-x:scroll}
+.feed_live_scroll ul{width:1000%;margin:0px;padding:0px;list-style:none;display:table}
+.feed_live_scroll ul li{float:left;width:75px;text-align:center}
+.feed_live_scroll ul li a{display:block;width:100%;height:100%;text-align:center}
+.feed_live_scroll ul li a{font-size:10px}
+.feed_live_scroll ul li a img{display:table;margin-left:auto;margin-right:auto}
