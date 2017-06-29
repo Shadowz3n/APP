@@ -133,7 +133,7 @@ function onYouTubeIframeAPIReady(){
 								for(var i=0;i<data.videos.length;i++){
 									currentPlaylist.push(data.videos[i].videoId);
 									$(".playerMusicList")[0].innerHTML	+= '<li class="active playlistIndex" data-playlist="'+playlist+'" data-title="'+data.videos[i].title+'" data-thumb="'+data.videos[i].thumb+'" data-videoid="'+data.videos[i].videoId+'" data-index="'+i+'" '+(music_id==data.videos[i].videoId? "style='background:#171717!important'":"")+' >'+
-																			Number(Number(i)+1)+'. '+data.videos[i].title.substring(0, 25)+'..'+
+																			Number(Number(i)+1)+'. '+(data.videos[i].title.length>24)? data.videos[i].title.substring(0, 25):data.videos[i].title+'..'+
 																			'<span>'+
 																				data.videos[i].duration+
 																				'<i class="material-icons">&#xE5D4;</i>'+
@@ -423,13 +423,13 @@ function startAPP(){
 				}
 				
 				for(var i=0;i<data.playlists.length;i++){
-					$("#"+id+"_playlists").innerHTML	+= '<li class="live_u_name playlistItem" data-u_name="'+data.playlists[i].u_name+'" data-title="'+data.history[i].pw_playlist_name+'" data-playlist="'+data.history[i].pw_playlist_id+'" data-thumb="'+data.history[i].p_playlist_img+'">'+
-																'<a class="live_u_name playlistItem" data-u_name="'+data.playlists[i].u_name+'" data-title="'+data.history[i].pw_playlist_name+'" data-playlist="'+data.history[i].pw_playlist_id+'" data-thumb="'+data.history[i].p_playlist_img+'">'+
+					$("#"+id+"_playlists").innerHTML	+= '<li class="live_u_name playlistItem" data-u_name="'+data.playlists[i].u_name+'" data-title="'+data.playlists[i].pw_playlist_name+'" data-playlist="'+data.playlists[i].p_playlist_id+'" data-thumb="'+data.playlists[i].p_playlist_img+'">'+
+																'<a class="live_u_name playlistItem" data-u_name="'+data.playlists[i].u_name+'" data-title="'+data.playlists[i].pw_playlist_name+'" data-playlist="'+data.playlists[i].p_playlist_id+'" data-thumb="'+data.playlists[i].p_playlist_img+'">'+
 																	'<div class="favoriteThumb">'+
 																		'<img src="'+data.playlists[i].p_playlist_img+'" alt="">'+
 																	'</div>'+
 																'</a>'+
-																'<span class="favoriteName live_u_name playlistItem" data-u_name="'+data.playlists[i].u_name+'" data-title="'+data.history[i].pw_playlist_name+'" data-playlist="'+data.history[i].p_playlist_id+'" data-thumb="'+data.history[i].p_playlist_img+'">'+
+																'<span class="favoriteName live_u_name playlistItem" data-u_name="'+data.playlists[i].u_name+'" data-title="'+data.playlists[i].pw_playlist_name+'" data-playlist="'+data.playlists[i].p_playlist_id+'" data-thumb="'+data.playlists[i].p_playlist_img+'">'+
 																	data.playlists[i].p_name+"<br><span style='font-size:12px!important'>"+data.playlists[i].views+' visualizações</span>'+
 																'</span>'+
 																'<!--<span class="addFavorite" data-videoimg="'+data.playlists[i].p_playlist_img+'" data-videoname="'+data.playlists[i].p_name+'" data-videoid="'+data.playlists[i].p_playlist_id+'">'+
