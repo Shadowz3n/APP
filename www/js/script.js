@@ -1286,11 +1286,11 @@ function startAPP(){
 	searchInput.addEventListener("keyup", function(){
 		var string	= this.value,
 			type	= document.location.hash.replace("#","").split("&")[1] || "mixed";
-		if(string.length>0){
+		//if(string.length>0){
 			$("#"+type).innerHTML	= "";
 			results	= (type=="mixed")? 2:3;
 			getYTVideos({type:type, results:results});
-		}
+		//}
 	}, false);
 
 	/* Get videos */
