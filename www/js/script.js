@@ -1495,8 +1495,8 @@ function startAPP(){
 						player.cuePlaylist({'list':playlist});
 						
 						$("#playlist_name").innerHTML	= music_title;
-						console.log(live_u_name);
-						$("#playlist_user_name_text").innerHTML		= (live_u_name==undefined)? "":"Playlist de "+live_u_name;
+						//console.log(live_u_name);
+						//$("#playlist_user_name_text").innerHTML		= (live_u_name==undefined)? "":"Playlist de "+live_u_name;
 						
 						$(".change_thumb_player")[0].setAttribute("src", music_img);
 						$(".change_thumb_player")[1].setAttribute("src", music_img);
