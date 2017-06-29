@@ -527,7 +527,7 @@ function startAPP(){
 		document.body.insertBefore(app_login, document.body.firstChild);
 		
 		var app_login_div		= document.createElement("div");
-		app_login_div.style		= "position:absolute;display:table;left:0px;right:0px;top:0px;bottom:0px;margin:auto;width:100%";
+		app_login_div.style		= "position:relative;display:table;transform:translateY(-50%);-webkit-transform:translateY(-50%);top:50%;width:100%";
 		app_login.insertBefore(app_login_div, app_login.firstChild);
 		var googleLoginBtn		= new Image();
 		googleLoginBtn.id		= "google_login";
