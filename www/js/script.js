@@ -408,29 +408,26 @@ function startAPP(){
 					}
 				}
 				for(var i=0;i<data.history.length;i++){
-					$("#"+id+"_feed").innerHTML	+= '<li>'+
-														'<a class="playlistItem" data-title="'+data.history[i].pw_playlist_name+'" data-playlist="'+data.history[i].pw_playlist_id+'" data-thumb="'+data.history[i].pw_playlist_img+'" href="#my_account&myAccount">'+
+					$("#"+id+"_feed").innerHTML	+= '<li class="playlistItem" data-title="'+data.history[i].pw_playlist_name+'" data-playlist="'+data.history[i].pw_playlist_id+'" data-thumb="'+data.history[i].pw_playlist_img+'">'+
+														'<a class="playlistItem" data-title="'+data.history[i].pw_playlist_name+'" data-playlist="'+data.history[i].pw_playlist_id+'" data-thumb="'+data.history[i].pw_playlist_img+'">'+
 															'<img class="userImage" src="'+data.history[i].u_img+'" alt="">'+
 														'</a>'+
-														'<span>'+
-															'está ouvindo a playlist <a href="#player&playlist='+data.history[i].pw_playlist_id+'">'+data.history[i].pw_playlist_name+'</a>'+
+														'<span class="playlistItem" data-title="'+data.history[i].pw_playlist_name+'" data-playlist="'+data.history[i].pw_playlist_id+'" data-thumb="'+data.history[i].pw_playlist_img+'">'+
+															'está ouvindo a playlist <a>'+data.history[i].pw_playlist_name+'</a>'+
 														'</span>'+
 														'<span class="feedTime">'+timeToDifference(Number(data.history[i].pw_time)*1000)+'</span>'+
 													'</li>';
 				}
 				
 				for(var i=0;i<data.playlists.length;i++){
-					$("#"+id+"_playlists").innerHTML	+= '<li>'+
-																'<a href="#player&playlist='+data.playlists[i].p_playlist_id+'" class="live_u_name playlistItem" data-u_name="'+data.playlists[i].u_name+'" data-title="'+data.history[i].pw_playlist_name+'" data-playlist="'+data.history[i].p_playlist_id+'" data-thumb="'+data.history[i].pw_playlist_img+'">'+
+					$("#"+id+"_playlists").innerHTML	+= '<li class="live_u_name playlistItem" data-u_name="'+data.playlists[i].u_name+'" data-title="'+data.history[i].pw_playlist_name+'" data-playlist="'+data.history[i].pw_playlist_id+'" data-thumb="'+data.history[i].p_playlist_img+'">'+
+																'<a class="live_u_name playlistItem" data-u_name="'+data.playlists[i].u_name+'" data-title="'+data.history[i].pw_playlist_name+'" data-playlist="'+data.history[i].pw_playlist_id+'" data-thumb="'+data.history[i].p_playlist_img+'">'+
 																	'<div class="favoriteThumb">'+
-																		'<img src="'+data.playlists[i].pw_playlist_img+'" alt="">'+
+																		'<img src="'+data.playlists[i].p_playlist_img+'" alt="">'+
 																	'</div>'+
 																'</a>'+
-																'<span class="favoriteName">'+
-																	data.playlists[i].p_name+
-																'</span>'+
-																'<span>'+
-																	data.playlists[i].views+' visualizações'+
+																'<span class="favoriteName live_u_name playlistItem" data-u_name="'+data.playlists[i].u_name+'" data-title="'+data.history[i].pw_playlist_name+'" data-playlist="'+data.history[i].p_playlist_id+'" data-thumb="'+data.history[i].p_playlist_img+'">'+
+																	data.playlists[i].p_name+"<br><span style='font-size:12px!important'>"+data.playlists[i].views+' visualizações</span>'+
 																'</span>'+
 																'<!--<span class="addFavorite" data-videoimg="'+data.playlists[i].p_playlist_img+'" data-videoname="'+data.playlists[i].p_name+'" data-videoid="'+data.playlists[i].p_playlist_id+'">'+
 																	'<i class="fa fa-check"></i>'+
@@ -887,7 +884,8 @@ function startAPP(){
 					url:"http://youoff.me/posts/",
 					data:"u_id="+window.localStorage.u_id+
 						"&add_playlist_name="+$("#add_playlist_text").value+
-						"&add_playlist_videos="+video_ids,
+						"&add_playlist_videos="+video_ids+
+						"&add_playlist_img="+$("#add_favorites_ul").getElementsByTagName("li")[0].getElementsByTagName("img")[0].src,
 					dataType:"JSON",
 					beforeSend:function(){
 						$("#add_playlist_text").value	= "";
