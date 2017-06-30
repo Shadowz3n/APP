@@ -342,3 +342,8 @@ color:white}
 .feed_live_scroll ul li a{display:block;width:100%;height:100%;text-align:center}
 .feed_live_scroll ul li a{font-size:10px}
 .feed_live_scroll ul li a img{display:table;margin-left:auto;margin-right:auto}
+.feed_ao_vivo_bg{position:absolute;background: #578b27;
+background: -moz-linear-gradient(top,  #578b27 0%, #384b24 100%);
+background: -webkit-linear-gradient(top,  #578b27 0%,#384b24 100%);
+background: linear-gradient(to bottom,  #578b27 0%,#384b24 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#578b27', endColorstr='#384b24',GradientType=0 );transform:rotateZ(90deg);-webkit-transform:rotateZ(90deg);width:80px;height:25px;text-align:center;line-height:25px;font-size:14px;left:-27px;margin-top:21px;font-weight:900}
