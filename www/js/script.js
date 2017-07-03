@@ -33,6 +33,7 @@ function vanillaAjax(options, func){
 	ytAjax = new XMLHttpRequest();
 	ytAjax.open("POST", options.url, true);
 	ytAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	ytAjax.timeout = 100000;
 	ytAjax.onreadystatechange = function(){
 		if(ytAjax.readyState != 4 || ytAjax.status != 200) return;
 		(options.dataType && options.dataType=="JSON")? func(JSON.parse(ytAjax.responseText)):func(ytAjax.responseText);
