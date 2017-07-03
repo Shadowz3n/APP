@@ -1484,7 +1484,7 @@ function startAPP(){
 				if(playlist==null || playlist==""){
 					document.location.hash	= "#search&mixed";
 				}else{
-					if(player){
+					if(player && player.getPlayerState()!=1){
 						$("#like_in_player").className			= "";
 						like_in_player.setAttribute("data-pl_id", 0);
 						
