@@ -1515,8 +1515,12 @@ function startAPP(){
 						player.cueVideoById("u1zgFlCw8Aw", 10, "small");
 						player.cuePlaylist({'list':playlist});
 						
-						$("#playlist_name").innerHTML	= music_title;
-						$("#playlist_user_name_text").innerHTML		= (live_u_name==undefined)? "":"Playlist de "+live_u_name;
+						$(".playlist_name")[0].innerHTML	= music_title;
+						$(".playlist_name")[1].innerHTML	= music_title;
+						$(".playlist_name")[2].innerHTML	= music_title;
+						$(".playlist_user_name_text")[0].innerHTML		= (live_u_name==undefined)? "":"Playlist de "+live_u_name;
+						$(".playlist_user_name_text")[1].innerHTML		= (live_u_name==undefined)? "":"Playlist de "+live_u_name;
+						$(".playlist_user_name_text")[2].innerHTML		= (live_u_name==undefined)? "":"Playlist de "+live_u_name;
 						
 						$(".change_thumb_player")[0].setAttribute("src", music_img);
 						$(".change_thumb_player")[1].setAttribute("src", music_img);
