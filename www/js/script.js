@@ -125,6 +125,8 @@ function onYouTubeIframeAPIReady(){
 						for(var i=0;i<playerElements.length;i++){
 							addClass(playerElements[i], "no_clicks");
 						}
+						addClass($("#send_message_to_live"), "no_clicks");
+						addClass($("#save_live_playlist_to_favorites"), "no_clicks");
 					
 						vanillaAjax({
 							url:"http://youoff.me/posts/",
@@ -196,6 +198,8 @@ function onYouTubeIframeAPIReady(){
 							for(var i=0;i<playerElements.length;i++){
 								removeClass(playerElements[i], "no_clicks");
 							}
+							removeClass($("#send_message_to_live"), "no_clicks");
+							removeClass($("#save_live_playlist_to_favorites"), "no_clicks");
 						});
 					}
 				}
