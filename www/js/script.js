@@ -470,7 +470,7 @@ function startAPP(){
 																'</span>'+
 																'<span class="addFavorite" data-videoimg="'+data.favorites[i].pw_playlist_img+'" data-videoname="'+data.favorites[i].pw_playlist_name+'" data-videoid="'+data.favorites[i].playlist_id+'">'+
 																	'<i class="fa fa-check"></i>'+
-																	'Adicionado'+
+																	'Adicionar'+
 																'</span>'+
 															'</li>';
 				}
