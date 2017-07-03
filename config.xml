@@ -22,30 +22,21 @@
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="disable-cursor" value="false" />
     <preference name="android-installLocation" value="auto" />
-    <icon src="www/img/icon.png" />
-    <icon gap:platform="android" gap:qualifier="ldpi" src="www/img/icon.png" />
-    <icon gap:platform="android" gap:qualifier="mdpi" src="www/img/icon.png" />
-    <icon gap:platform="android" gap:qualifier="hdpi" src="www/img/icon.png" />
-    <icon gap:platform="android" gap:qualifier="xhdpi" src="www/img/icon.png" />
+    <icon src="www/icons/android/icon-192-xxxhdpi.png" />
     <icon gap:platform="blackberry" src="www/img/icon.png" />
     <icon gap:platform="blackberry" gap:state="hover" src="www/img/icon.png" />
-    <icon gap:platform="ios" height="57" src="www/img/icon.png" width="57" />
-    <icon gap:platform="ios" height="72" src="www/img/icon.png" width="72" />
-    <icon gap:platform="ios" height="114" src="www/img/icon.png" width="114" />
-    <icon gap:platform="ios" height="144" src="www/img/icon.png" width="144" />
+    <icon gap:platform="ios" height="57" src="www/icons/ios/icon.png" width="57" />
+    <icon gap:platform="ios" height="72" src="www/icons/ios/icon-72.png" width="72" />
+    <icon gap:platform="ios" height="114" src="www/icons/ios/icon-2x.png" width="114" />
+    <icon gap:platform="ios" height="144" src="www/icons/ios/icon-72-2x.png" width="144" />
     <icon gap:platform="webos" src="www/img/icon.png" />
     <icon gap:platform="winphone" src="www/img/icon.png" />
     <icon gap:platform="winphone" gap:role="background" src="www/img/icon.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="www/img/icon.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="www/img/icon.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="www/img/icon.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="www/img/icon.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="www/icons/android/icon-36-ldpi.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="www/icons/android/icon-48-mdpi.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="wwww/icons/android/icon-72-hdpi.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="www/icons/android/icon-96-xhdpi.png" />
     <gap:splash gap:platform="blackberry" src="www/img/icon.png" />
-    <gap:splash gap:platform="ios" height="480" src="www/img/icon.png" width="320" />
-    <gap:splash gap:platform="ios" height="960" src="www/img/icon.png" width="640" />
-    <gap:splash gap:platform="ios" height="1136" src="www/img/icon.png" width="640" />
-    <gap:splash gap:platform="ios" height="1024" src="www/img/icon.png" width="768" />
-    <gap:splash gap:platform="ios" height="768" src="www/img/icon.png" width="1024" />
     <gap:splash gap:platform="winphone" src="www/img/icon.png" />
     <gap:config-file parent="CFBundleShortVersionString" platform="ios">
         <string>100</string>
