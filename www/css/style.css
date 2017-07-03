@@ -129,7 +129,7 @@ input,select,button:focus{outline:1px solid #585858}
 .userFavorites > ul > li{border-bottom:1px solid #424242;clear:both;height:90px;padding:10px;position:relative;}
 .userFavorites > ul > li > a{display:block}
 .userFavorites > ul > li > a > .favoriteThumb{display:block;float:left;margin:5px 20px 0 0;position:relative;width:81px;height:50px}
-.userFavorites > ul > li > a > .favoriteThumb img{max-width:100%;max-height:100%}
+.userFavorites > ul > li > a > .favoriteThumb img{max-width:90%;max-height:100%}
 .userFavorites > ul > li > span{color:#656565;}
 .userFavorites > ul > li > .favoriteName > a{color:#656565;display:block;font-size:1.2em;font-weight:400;margin:0 0 3px 0;max-width:280px;}
 .userFavorites > ul > li > .addFavorite{color:#656565;position:absolute;right:15px;text-align:center;top:20px;width:60px;}
