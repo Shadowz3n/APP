@@ -72,6 +72,28 @@ function $(el){
 	return (el.substr(0,1)=="#")? document.getElementById(el.substring(1)):document.getElementsByClassName(el.substring(1));
 }
 
+/* Add class */
+function addClass(elements, myClass){
+	if(!elements) { return; }
+	if(typeof(elements) === 'string'){
+		elements = document.querySelectorAll(elements);
+	}else if(elements.tagName){ elements=[elements]; }
+	for(var i=0;i<elements.length;i++){
+		elements[i].classList.add(myClass);
+	}
+}
+
+/* Remove class */
+function removeClass(elements, myClass){
+	if(!elements) { return; }
+	if(typeof(elements) === 'string'){
+		elements = document.querySelectorAll(elements);
+	}else if(elements.tagName){ elements=[elements]; }
+	for(var i=0;i<elements.length;i++){
+		elements[i].classList.remove(myClass);
+	}
+}
+
 function onYouTubeIframeAPIReady(){
 	player = new YT.Player('player_yt', {
 		height: '0',
@@ -97,6 +119,12 @@ function onYouTubeIframeAPIReady(){
 					currentPlaylist			= [];
 					
 					if(playlist_musics && playlist_musics.length>0){
+					
+						var playerElements	= $(".playerStatistics")[0].getElementsByTagName("li");
+						for(var i=0;i<playerElements.length;i++){
+							addClass(playerElements[i], "no_clicks");
+						}
+					
 						vanillaAjax({
 							url:"http://youoff.me/posts/",
 							data:"playlist="+playlist+
@@ -162,6 +190,11 @@ function onYouTubeIframeAPIReady(){
 							
 							getIndexFromMusic		= (music_id!=null)? currentPlaylist.indexOf(music_id):0;
 							player.loadPlaylist({playlist:currentPlaylist, index:getIndexFromMusic, suggestedQuality:'small'});
+							
+							var playerElements	= $(".playerStatistics")[0].getElementsByTagName("li");
+							for(var i=0;i<playerElements.length;i++){
+								removeClass(playerElements[i], "no_clicks");
+							}
 						});
 					}
 				}
@@ -180,28 +213,6 @@ function startAPP(){
 	/* Check connection */
 	function checkConnection(){
 		return (navigator.onLine!=='none')? true:false;
-	}
-	
-	/* Add class */
-	function addClass(elements, myClass){
-		if(!elements) { return; }
-		if(typeof(elements) === 'string'){
-			elements = document.querySelectorAll(elements);
-		}else if(elements.tagName){ elements=[elements]; }
-		for(var i=0;i<elements.length;i++){
-			elements[i].classList.add(myClass);
-		}
-	}
-	
-	/* Remove class */
-	function removeClass(elements, myClass){
-		if(!elements) { return; }
-		if(typeof(elements) === 'string'){
-			elements = document.querySelectorAll(elements);
-		}else if(elements.tagName){ elements=[elements]; }
-		for(var i=0;i<elements.length;i++){
-			elements[i].classList.remove(myClass);
-		}
 	}
 	
 	/* Toggle class */
