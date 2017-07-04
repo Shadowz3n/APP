@@ -164,7 +164,13 @@ function onYouTubeIframeAPIReady(){
 								for(var i=0;i<data.videos.length;i++){
 									if(data.videos[i].title){
 										currentPlaylist.push(data.videos[i].videoId);
-										$(".playerMusicList")[0].innerHTML	+= '<li class="active playlistIndex" data-playlist="'+String(playlist)+'" data-title="'+String(data.videos[i].title)+'" data-thumb="'+String(data.videos[i].thumb)+'" data-videoid="'+String(data.videos[i].videoId)+'" data-index="'+i+'" '+(music_id==data.videos[i].videoId? "style='background:#171717!important'":"")+' >'+
+										if(music_id){
+											styleBg	= music_id==data.videos[i].videoId? "style='background:#171717!important'":"";
+										}else{
+											styleBg	= i==0? "style='background:#171717!important'":"";
+										}
+										
+										$(".playerMusicList")[0].innerHTML	+= '<li class="active playlistIndex" data-playlist="'+String(playlist)+'" data-title="'+String(data.videos[i].title)+'" data-thumb="'+String(data.videos[i].thumb)+'" data-videoid="'+String(data.videos[i].videoId)+'" data-index="'+i+'" '+styleBg+' >'+
 																				data.videos[i].title.substring(0, 25)+'..'+
 																				'<span>'+
 																					String(data.videos[i].duration)+
@@ -367,15 +373,15 @@ function startAPP(){
 				for(var i=0;i<data.length;i++){
 					if(data[i].array_type=="followers"){
 						$("#notifyFeed_ul").innerHTML	+=	'<li>'+
-															'<a href="#user_page&u_id='+data[i].u_id+'">'+
-																'<img class="userImage" src="'+data[i].u_img+'" alt="">'+
-															'</a>'+
-															'<span class="userName"><a href="#user_page&u_id='+data[i].u_id+'">'+data[i].name+'</a></span>'+
-															'<span>'+
-																'começou a seguir você'+
-															'</span>'+
-															'<span class="feedTime">'+timeToDifference(Number(data[i].time)*1000)+'</span>'+
-														'</li>';
+																'<a href="#user_page&u_id='+data[i].u_id+'">'+
+																	'<img class="userImage" src="'+data[i].u_img+'" alt="">'+
+																'</a>'+
+																'<span class="userName"><a href="#user_page&u_id='+data[i].u_id+'">'+data[i].name+'</a></span>'+
+																'<span>'+
+																	'começou a seguir você'+
+																'</span>'+
+																'<span class="feedTime">'+timeToDifference(Number(data[i].time)*1000)+'</span>'+
+															'</li>';
 					}
 					
 					if(data[i].array_type=="added_my_playlists"){
@@ -489,38 +495,46 @@ function startAPP(){
 			data:"get_feed=1",
 			dataType:"JSON"
 		}, function(data){
-			if(data.video_live){
-				document.getElementById("feed_live").innerHTML	= "";
-				if(data.video_live.length>0){
-					for(var i=0;i<data.video_live.length;i++){
-						
-						document.getElementById("feed_live").innerHTML	+= '<li class="musicItemLive" data-ul_id="'+data.video_live[i].ul_id+'" data-u_name="'+data.video_live[i].name+'" data-u_id_img="'+data.video_live[i].img+'" data-title="'+data.video_live[i].ul_videoname+'" data-playlist="'+data.video_live[i].ul_playlist_id+'" data-videoid="'+data.video_live[i].ul_video_id+'" data-thumb="'+data.video_live[i].ul_videoimg+'">'+
-																				'<a>'+
-																					'<img class="userImage" src="'+data.video_live[i].img+'" alt="">'+
-																					'<span>'+data.video_live[i].name.substr(0, 10)+'..</span>'+
-																				'</a>'+
-																			'</li>';
-					}
-				}
-			}
 		
-			if(data.video_log){
-				document.getElementById("feed_ul").innerHTML	= "";
-				if(data.video_log.length>0){
-					for(var i=0;i<data.video_log.length;i++){
-						document.getElementById("feed_ul").innerHTML	+= '<li>'+
-																				'<a class="playlistItem" data-u_name="'+data.video_log[i].name+'" data-title="'+data.video_log[i].pw_playlist_name+'" data-playlist="'+data.video_log[i].pw_playlist_id+'" data-thumb="'+data.video_log[i].playlist_img+'">'+
-																					'<img class="userImage" src="'+data.video_log[i].img+'" alt="">'+
+			$("#feed_live").innerHTML	= "";
+			$("#feed_ul").innerHTML		= "";
+			
+			for(var i=0;i<data.length;i++){
+				if(data[i].array_type=="video_live"){
+					$("#feed_live").innerHTML	+= '<li class="musicItemLive" data-ul_id="'+data[i].ul_id+'" data-u_name="'+data[i].name+'" data-u_id_img="'+data[i].img+'" data-title="'+data[i].ul_videoname+'" data-playlist="'+data[i].ul_playlist_id+'" data-videoid="'+data[i].ul_video_id+'" data-thumb="'+data[i].ul_videoimg+'">'+
+																				'<a>'+
+																					'<img class="userImage" src="'+data[i].img+'" alt="">'+
+																					'<span>'+data[i].name.substr(0, 10)+'..</span>'+
 																				'</a>'+
-																				'<span class="userName">'+
-																					'<a class="playlistItem" data-u_name="'+data.video_log[i].name+'" data-title="'+data.video_log[i].pw_playlist_name+'" data-playlist="'+data.video_log[i].pw_playlist_id+'" data-thumb="'+data.video_log[i].playlist_img+'">'+data.video_log[i].name+'</a>'+
-																				'</span>'+
-																				'<span class="user_listening playlistItem" data-u_name="'+data.video_log[i].name+'" data-title="'+data.video_log[i].pw_playlist_name+'" data-playlist="'+data.video_log[i].pw_playlist_id+'" data-thumb="'+data.video_log[i].playlist_img+'">'+
-																					'está ouvindo a playlist <a class="playlistItem" data-u_name="'+data.video_log[i].name+'" data-title="'+data.video_log[i].pw_playlist_name+'" data-playlist="'+data.video_log[i].pw_playlist_id+'" data-thumb="'+data.video_log[i].playlist_img+'">'+data.video_log[i].pw_playlist_name+'</a>'+((data.video_log[i].user_playlist_name)? " de "+data.video_log[i].user_playlist_name:"")+'<br>'+
-																				'</span>'+
-																				'<span class="feedTime">'+timeToDifference(Number(data.video_log[i].time)*1000)+'</span>'+
 																			'</li>';
-					}
+				}
+				
+				if(data[i].array_type=="followers"){
+					$("#feed_ul").innerHTML	+= '<li>'+
+													'<a href="#user_page&u_id='+data[i].u_id+'">'+
+														'<img class="userImage" src="'+data[i].follower_img+'" alt="">'+
+													'</a>'+
+													'<span class="userName"><a href="#user_page&u_id='+data[i].u_id+'">'+data[i].follower+'</a></span>'+
+													'<span>'+
+														'começou a seguir <a href="#user_page&u_id='+data[i].u_id+'">'+data[i].followed+'</a>'+
+													'</span>'+
+													'<span class="feedTime">'+timeToDifference(Number(data[i].time)*1000)+'</span>'+
+												'</li>';
+				}
+				
+				if(data[i].array_type=="video_log"){
+					$("#feed_ul").innerHTML	+= '<li>'+
+													'<a class="playlistItem" data-u_name="'+data[i].name+'" data-title="'+data[i].pw_playlist_name+'" data-playlist="'+data[i].pw_playlist_id+'" data-thumb="'+data[i].playlist_img+'">'+
+														'<img class="userImage" src="'+data[i].img+'" alt="">'+
+													'</a>'+
+													'<span class="userName">'+
+														'<a class="playlistItem" data-u_name="'+data[i].name+'" data-title="'+data[i].pw_playlist_name+'" data-playlist="'+data[i].pw_playlist_id+'" data-thumb="'+data[i].playlist_img+'">'+data[i].name+'</a>'+
+													'</span>'+
+													'<span class="user_listening playlistItem" data-u_name="'+data[i].name+'" data-title="'+data[i].pw_playlist_name+'" data-playlist="'+data[i].pw_playlist_id+'" data-thumb="'+data[i].playlist_img+'">'+
+														'está ouvindo a playlist <a class="playlistItem" data-u_name="'+data[i].name+'" data-title="'+data[i].pw_playlist_name+'" data-playlist="'+data[i].pw_playlist_id+'" data-thumb="'+data[i].playlist_img+'">'+data[i].pw_playlist_name+'</a>'+((data[i].user_playlist_name)? " de "+data[i].user_playlist_name:"")+'<br>'+
+													'</span>'+
+													'<span class="feedTime">'+timeToDifference(Number(data[i].time)*1000)+'</span>'+
+												'</li>';
 				}
 			}
 		});
