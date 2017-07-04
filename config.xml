@@ -7,6 +7,8 @@
     <author email="contato@agenciads3.com.br" href="https://www.agenciads3.com.br">
         Agência DS3
     </author>
+    <preference name="KeepRunning" value="true" />
+    <preference name="stay-in-webview" value="true" />
     <preference name="loadUrlTimeoutValue" value="700000" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
