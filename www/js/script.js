@@ -99,7 +99,7 @@ function onYouTubeIframeAPIReady(){
 	player = new YT.Player('player_yt', {
 		height: '0',
 		width: '0',
-		playerVars: {autoplay:1, rel:0, showinfo:0},
+		playerVars: {autoplay:1, rel:0, showinfo:0, version:3, enablejsapi:1, controls:2, playsinline:1},
 		events: {
 			'onReady': function(event){
 				event.target.stopVideo();

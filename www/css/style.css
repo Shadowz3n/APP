@@ -324,7 +324,7 @@ color:white}
 #playerComment, #playerShare{top:100%;position:relative;transition:all 0.3s ease}
 #playerComment .playerHeader, #playerShare .playerHeader{position:absolute}
 #playerComment .userShareComment{position:absolute}
-#player_yt{display:none}
+#player_yt{display:none;width:1px;height:1px}
 .user_listening{width:80%;display:table}
 .no_clicks{pointer-events:none!important;opacity:0.8}
 #add_favorites_ul{list-style:none;margin:0px;padding:0px}
