@@ -99,9 +99,10 @@ function onYouTubeIframeAPIReady(){
 	player = new YT.Player('player_yt', {
 		height: '0',
 		width: '0',
-		playerVars: {autoplay:1, rel:0, showinfo:0, version:3, enablejsapi:1, controls:2, playsinline:1},
+		playerVars: {autoplay:1, rel:0, showinfo:0, version:3, enablejsapi:1, controls:2, playsinline:1, origin:"http://youoff.me"},
 		events: {
 			'onReady': function(event){
+				//event.target.setPlayBackQuality("small");
 				event.target.stopVideo();
 			},
 			'onStateChange': function(event){
@@ -751,7 +752,7 @@ function startAPP(){
 		var pause_play_player	= $(".pause_play_player");
 		for(var i=0;i<pause_play_player.length;i++){
 			pause_play_player[i].addEventListener(e, function(){
-				(player.getPlayerState()==1)? player.pauseVideo():player.playVideo();
+				(player.getPlayerState()==1)? player.pauseVideo():player.playVideo(), player.setVolume(100);
 			},false);
 		}
 	});
