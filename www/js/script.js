@@ -810,7 +810,7 @@ function startAPP(){
 		
 			window.plugins.socialsharing.shareViaWhatsApp(player.getVideoUrl()+" "+$("#share_text").value, 
 															music_img, 
-															player.getVideoUrl(), function(){
+															null /* url */, function(){
 																console.log('share ok')
 															}, function(errormsg){
 																alert(errormsg)
