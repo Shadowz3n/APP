@@ -802,12 +802,6 @@ function startAPP(){
 	/* Share on Whatsapp */
 	("touchend".split(" ")).forEach(function(e){
 		$("#share_on_whatsapp").addEventListener(e, function(e){
-
-			console.log(music_id);
-			console.log(music_title);
-			console.log(playlist);
-			console.log(music_img);
-		
 			window.plugins.socialsharing.shareViaWhatsApp(player.getVideoUrl()+" "+$("#share_text").value, 
 															music_img, 
 															null /* url */, function(){
