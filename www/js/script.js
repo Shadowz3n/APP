@@ -779,15 +779,15 @@ function startAPP(){
 	/* Share on Twitter */
 	("touchend".split(" ")).forEach(function(e){
 		$("#share_on_twitter").addEventListener(e, function(e){
-			window.plugins.socialsharing.shareViaTwitter($("#share_text").value);
+			window.plugins.socialsharing.shareViaTwitter(player.getVideoUrl()+" "+$("#share_text").value);
 		},false);
 	});
 	
-	/* Share on Twitter */
+	/* Share on Google */
 	("touchend".split(" ")).forEach(function(e){
 		$("#share_on_google").addEventListener(e, function(e){
 			window.plugins.socialsharing.shareVia(	'com.google.android.apps.plus', 
-													$("#share_text").value, 
+													player.getVideoUrl()+" "+$("#share_text").value, 
 													null, 
 													null, 
 													null, 
@@ -799,11 +799,17 @@ function startAPP(){
 		},false);
 	});
 	
-	/* Share on Twitter */
+	/* Share on Whatsapp */
 	("touchend".split(" ")).forEach(function(e){
 		$("#share_on_whatsapp").addEventListener(e, function(e){
-			window.plugins.socialsharing.shareViaWhatsApp($("#share_text").value, 
-															null /* img */, 
+
+			console.log(music_id);
+			console.log(music_title);
+			console.log(playlist);
+			console.log(music_img);
+		
+			window.plugins.socialsharing.shareViaWhatsApp(player.getVideoUrl()+" "+$("#share_text").value, 
+															music_img, 
 															null /* url */, function(){
 																console.log('share ok')
 															}, function(errormsg){
@@ -815,8 +821,8 @@ function startAPP(){
 	/* Share on Facebook */
 	("touchend".split(" ")).forEach(function(e){
 		$("#share_on_facebook").addEventListener(e, function(e){
-			window.plugins.socialsharing.shareViaFacebook($("#share_text").value, 
-															null /* img */, 
+			window.plugins.socialsharing.shareViaFacebook(player.getVideoUrl()+" "+$("#share_text").value, 
+															music_img, 
 															null /* url */, 
 															function(){
 																console.log('share ok')
