@@ -1408,7 +1408,7 @@ function startAPP(){
 				if(playlist==null || playlist==""){
 					document.location.hash	= "#search&mixed";
 				}else{
-					if(player && player.getPlayerState()!=1){
+					if(player && player.getVideoData()!=playlist_videos.split(",")[0]){
 						$("#like_in_player").className			= "";
 						like_in_player.setAttribute("data-pl_id", 0);
 						
@@ -1424,71 +1424,71 @@ function startAPP(){
 						$("#playerStatistics_shares").innerHTML		= 0;
 						$("#playerStatistics_added").innerHTML		= 0;
 						ul_id	= "";
-						if(player.getVideoData()!=playlist_videos.split(",")[0]){
+						
+						var playerElements	= $(".playerStatistics")[0].getElementsByTagName("li");
+						for(var i=0;i<playerElements.length;i++){
+							addClass(playerElements[i], "no_clicks");
+						}
+						addClass($("#send_message_to_live"), "no_clicks");
+						addClass($("#save_live_playlist_to_favorites"), "no_clicks");
+				
+						vanillaAjax({
+							url:"http://youoff.me/posts/",
+							data:"playlist="+playlist+
+								"&ul_id="+ul_id+
+								"&add_video_log_u_id="+window.localStorage.u_id+
+								"&add_video_log_title="+music_title+
+								"&add_video_log_music_id="+music_id+
+								"&add_video_log_videoimg="+music_img,
+							dataType:"JSON"
+						}, function(data){
+							if(data.statistics){
+								if(data.statistics[0].liked){
+									$("#like_in_player").className			= "playerStatistics_active";
+									like_in_player.setAttribute("data-pl_id", data.statistics[0].favorited);
+								}
+								if(data.statistics[0].favorited){
+									favorite_in_player.className			= "playerStatistics_active";
+									favorite_in_player.setAttribute("data-pf_id", data.statistics[0].favorited);
+								}
+								if(data.statistics[0].added>0){
+									add_in_player.className					= "playerStatistics_active";
+									add_in_player.setAttribute("data-pa_id", data.statistics[0].added);
+								}
+								$("#playerStatistics_likes").innerHTML		= data.statistics[0].likes;
+								$("#playerStatistics_comments").innerHTML	= data.statistics[0].comments;
+								$("#playerStatistics_favorites").innerHTML	= data.statistics[0].favorites;
+								$("#playerStatistics_shares").innerHTML		= data.statistics[0].added;
+								$("#playerStatistics_added").innerHTML		= data.statistics[0].added;
+							}
+					
+							$(".playerMusicList")[0].innerHTML		= "";
+							$(".playerMusicList")[1].innerHTML		= "";
+					
+							if(data.comments_on_live){
+								if(data.comments_on_live[0]){
+									$("#save_live_playlist_to_favorites").className	= (data.comments_on_live[0].favorited)? "icon_on":"love_off";
+									$("#playlist_watchers_count_live").innerHTML	= data.comments_on_live[0].watchers;
+								} 
+								for(var i=0;i<data.comments_on_live.length;i++){
+									$("#live_comments_ul").innerHTML	+= '<li>'+
+																				'<img class="userImage" src="'+data.comments_on_live[i].u_img+'" alt="">'+
+																				'<span>'+
+																					'<b>'+data.comments_on_live[i].name+'</b><br>'+
+																					data.comments_on_live[i].ulc_text+
+																				'</span>'+
+																			'</li>';
+								}
+							}
+
 							var playerElements	= $(".playerStatistics")[0].getElementsByTagName("li");
 							for(var i=0;i<playerElements.length;i++){
-								addClass(playerElements[i], "no_clicks");
+								removeClass(playerElements[i], "no_clicks");
 							}
-							addClass($("#send_message_to_live"), "no_clicks");
-							addClass($("#save_live_playlist_to_favorites"), "no_clicks");
-					
-							vanillaAjax({
-								url:"http://youoff.me/posts/",
-								data:"playlist="+playlist+
-									"&ul_id="+ul_id+
-									"&add_video_log_u_id="+window.localStorage.u_id+
-									"&add_video_log_title="+music_title+
-									"&add_video_log_music_id="+music_id+
-									"&add_video_log_videoimg="+music_img,
-								dataType:"JSON"
-							}, function(data){
-								if(data.statistics){
-									if(data.statistics[0].liked){
-										$("#like_in_player").className			= "playerStatistics_active";
-										like_in_player.setAttribute("data-pl_id", data.statistics[0].favorited);
-									}
-									if(data.statistics[0].favorited){
-										favorite_in_player.className			= "playerStatistics_active";
-										favorite_in_player.setAttribute("data-pf_id", data.statistics[0].favorited);
-									}
-									if(data.statistics[0].added>0){
-										add_in_player.className					= "playerStatistics_active";
-										add_in_player.setAttribute("data-pa_id", data.statistics[0].added);
-									}
-									$("#playerStatistics_likes").innerHTML		= data.statistics[0].likes;
-									$("#playerStatistics_comments").innerHTML	= data.statistics[0].comments;
-									$("#playerStatistics_favorites").innerHTML	= data.statistics[0].favorites;
-									$("#playerStatistics_shares").innerHTML		= data.statistics[0].added;
-									$("#playerStatistics_added").innerHTML		= data.statistics[0].added;
-								}
-						
-								$(".playerMusicList")[0].innerHTML		= "";
-								$(".playerMusicList")[1].innerHTML		= "";
-						
-								if(data.comments_on_live){
-									if(data.comments_on_live[0]){
-										$("#save_live_playlist_to_favorites").className	= (data.comments_on_live[0].favorited)? "icon_on":"love_off";
-										$("#playlist_watchers_count_live").innerHTML	= data.comments_on_live[0].watchers;
-									} 
-									for(var i=0;i<data.comments_on_live.length;i++){
-										$("#live_comments_ul").innerHTML	+= '<li>'+
-																					'<img class="userImage" src="'+data.comments_on_live[i].u_img+'" alt="">'+
-																					'<span>'+
-																						'<b>'+data.comments_on_live[i].name+'</b><br>'+
-																						data.comments_on_live[i].ulc_text+
-																					'</span>'+
-																				'</li>';
-									}
-								}
-
-								var playerElements	= $(".playerStatistics")[0].getElementsByTagName("li");
-								for(var i=0;i<playerElements.length;i++){
-									removeClass(playerElements[i], "no_clicks");
-								}
-								removeClass($("#send_message_to_live"), "no_clicks");
-								removeClass($("#save_live_playlist_to_favorites"), "no_clicks");
-							});
-						}
+							removeClass($("#send_message_to_live"), "no_clicks");
+							removeClass($("#save_live_playlist_to_favorites"), "no_clicks");
+						});
+						player.stopVideo();
 						player.loadVideoById({videoId:playlist_videos.split(",")[0], suggestedQuality:"small"});
 						
 						$(".playlist_name")[0].innerHTML	= music_title;
@@ -1518,8 +1518,6 @@ function startAPP(){
 					player.cueVideoById("u1zgFlCw8Aw", 10, "small");
 					player.cuePlaylist({'list':playlist, 'listType':'playlist'});
 				}
-			}else{
-				//if(live_player_active) player.stopVideo();
 			}
 		
 			if(thisHash[0]=="player" || thisHash[0]=="player_live" || thisHash[0]=="playerShare" || thisHash[0]=="playerComment" || thisHash[0]=="add_playlist"){
