@@ -398,7 +398,7 @@ function startAPP(){
 		$("#feed_ul").innerHTML	= "<img src='img/loading.svg' style='width:45px;display:table;margin-top:25px;margin-left:auto;margin-right:auto' alt=''>";
 		vanillaAjax({
 			url:"http://youoff.me/posts/",
-			data:"get_feed=1",
+			data:"get_feed=1"+"&u_id="+window.localStorage.u_id,
 			dataType:"JSON"
 		}, function(data){
 		
