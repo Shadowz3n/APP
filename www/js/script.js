@@ -99,7 +99,8 @@ function onYouTubeIframeAPIReady(){
 	player = new YT.Player('player_yt', {
 		height: '0',
 		width: '0',
-		playerVars: {autoplay:1, rel:0, showinfo:0, version:3, enablejsapi:1, controls:2, playsinline:1, origin:"http://youoff.me"},
+		videoId: 'M7lc1UVf-VE',
+		playerVars: {autoplay:1, rel:0, version:3, enablejsapi:1, playsinline:1},
 		events: {
 			'onReady': function(event){
 				//event.target.setPlayBackQuality("small");
@@ -128,7 +129,7 @@ function onYouTubeIframeAPIReady(){
 						}
 						addClass($("#send_message_to_live"), "no_clicks");
 						addClass($("#save_live_playlist_to_favorites"), "no_clicks");
-					
+						
 						vanillaAjax({
 							url:"http://youoff.me/posts/",
 							data:"playlist="+playlist+
@@ -174,7 +175,7 @@ function onYouTubeIframeAPIReady(){
 										$(".playerMusicList")[0].innerHTML	+= '<li class="active playlistIndex" data-playlist="'+String(playlist)+'" data-title="'+String(data.videos[i].title)+'" data-thumb="'+String(data.videos[i].thumb)+'" data-videoid="'+String(data.videos[i].videoId)+'" data-index="'+i+'" '+styleBg+' >'+
 																				data.videos[i].title.substring(0, 25)+'..'+
 																				'<span>'+
-																					String(data.videos[i].duration)+
+																					//String(data.videos[i].duration)+
 																					'<i class="material-icons">&#xE5D4;</i>'+
 																				'</span>'+
 																			'</li>';
@@ -321,7 +322,7 @@ function startAPP(){
 			parentParentClasses	= event.target.parentNode.parentNode.className.split(" ");
 			if(classes.in_array("musicItem") || classes.in_array("playlistItem")){
 				music_title				= event.target.getAttribute("data-title");
-				music_duration			= event.target.getAttribute("data-duration");
+				//music_duration			= event.target.getAttribute("data-duration");
 				music_id				= event.target.getAttribute("data-videoid");
 				music_img				= event.target.getAttribute("data-thumb");
 				playlist				= event.target.getAttribute("data-playlist");
@@ -982,7 +983,7 @@ function startAPP(){
 				live_u_img				= musicItemLive.getAttribute("data-u_id_img");
 				live_u_name				= musicItemLive.getAttribute("data-u_name");
 				music_title				= musicItemLive.getAttribute("data-title");
-				music_duration			= musicItemLive.getAttribute("data-duration");
+				//music_duration			= musicItemLive.getAttribute("data-duration");
 				music_id				= musicItemLive.getAttribute("data-videoid");
 				music_img				= musicItemLive.getAttribute("data-thumb");
 				playlist				= musicItemLive.getAttribute("data-playlist");
@@ -1391,7 +1392,7 @@ function startAPP(){
 									'</div>';
 		}
 		if(type=="music"){
-			$("#"+id).innerHTML	+= '<div class="searchFeedItem musicItem" data-playlist="'+data.playlist+'" data-title="'+data.title+'" data-duration="'+data.duration+'" data-videoid="'+data.videoId+'" data-thumb="'+data.thumb+'">'+
+			$("#"+id).innerHTML	+= '<div class="searchFeedItem musicItem" data-playlist="'+data.playlist+'" data-title="'+data.title+'" data-videoid="'+data.videoId+'" data-thumb="'+data.thumb+'">'+
 										'<img class="itemBackground" src="'+data.thumb+'" alt="">'+
 										'<div>'+
 											data.title+
