@@ -1438,7 +1438,7 @@ function startAPP(){
 								"&ul_id="+ul_id+
 								"&add_video_log_u_id="+window.localStorage.u_id+
 								"&add_video_log_title="+music_title+
-								"&add_video_log_music_id="+music_id+
+								"&add_video_log_music_id="+playlist_videos.split(",")[0]+
 								"&add_video_log_videoimg="+music_img,
 							dataType:"JSON"
 						}, function(data){
