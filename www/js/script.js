@@ -173,10 +173,10 @@ function onYouTubeIframeAPIReady(){
 										}
 										
 										$(".playerMusicList")[0].innerHTML	+= '<li class="active playlistIndex" data-playlist="'+String(playlist)+'" data-title="'+String(data.videos[i].title)+'" data-thumb="'+String(data.videos[i].thumb)+'" data-videoid="'+String(data.videos[i].videoId)+'" data-index="'+i+'" '+styleBg+' >'+
-																				data.videos[i].title.substring(0, 25)+'..'+
+																				data.videos[i].title.substring(0, 35)+'..'+
 																				'<span>'+
 																					//String(data.videos[i].duration)+
-																					'<i class="material-icons">&#xE5D4;</i>'+
+																					//'<i class="material-icons">&#xE5D4;</i>'+
 																				'</span>'+
 																			'</li>';
 									}
