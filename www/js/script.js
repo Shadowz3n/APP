@@ -957,7 +957,7 @@ function startAPP(){
 					$(".commentsList")[0].innerHTML	= "<img src='img/loading.svg' style='width:45px;display:table;margin-top:25px;margin-left:auto;margin-right:auto' alt=''>";
 					vanillaAjax({
 						url:"http://youoff.me/posts/",
-						data:"comment_playlist_id="+playlist,
+						data:"comment_playlist_id="+music_id,
 						dataType:"JSON",
 						beforeSend:function(){
 							addClass(like_in_player, "no_clicks");
@@ -1041,7 +1041,7 @@ function startAPP(){
 															'</li>';
 					vanillaAjax({
 						url:"http://youoff.me/posts/",
-						data:"send_comment_playlist_id="+playlist+
+						data:"send_comment_playlist_id="+music_id+
 							"&send_comment_text="+send_comment_text.value+
 							"&u_id="+window.localStorage.u_id,
 						dataType:"JSON",
