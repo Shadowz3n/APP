@@ -914,7 +914,7 @@ function startAPP(){
 					if(like_in_player.className!="playerStatistics_active"){
 						vanillaAjax({
 							url:"http://youoff.me/posts/",
-							data:	"add_playlist_to_likes_id="+playlist+
+							data:	"add_playlist_to_likes_id="+music_id+
 									"&u_id="+window.localStorage.u_id,
 							dataType:"JSON",
 							beforeSend:function(){
@@ -1110,7 +1110,7 @@ function startAPP(){
 					if(add_in_player.className!="playerStatistics_active"){
 						vanillaAjax({
 							url:"http://youoff.me/posts/",
-							data:	"add_playlist_to_added="+playlist+
+							data:	"add_playlist_to_added="+music_id+
 									"&u_id="+window.localStorage.u_id,
 							dataType:"JSON",
 							beforeSend:function(){
