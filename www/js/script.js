@@ -1336,25 +1336,18 @@ function startAPP(){
 			}
 		}, function(data){
 			$("#"+options.type).innerHTML	= "";
-			var type_from_yt	= options.type=="music"? "video":"channel";
+			var type_from_yt	= options.type=="music"? "videos":"channel";
 				type_from_yt	= options.type=="playlist"? "playlist":type_from_yt;
 				type_from_yt	= options.type=="mixed"? "mixed":type_from_yt;
 			if(type_from_yt!="mixed"){
-				if(type_from_yt=="video"){
-					for(var i=0;i<data["playlist"].length;i++){
-						for(var k=0;k<data["playlist"][i]["videos"].length;k++){
-							addYTSearch(type, data["playlist"][i]["videos"][k], false);
-						}
-					}
-				}else{
-					for(var i=0;i<data[type_from_yt].length;i++){
-						addYTSearch(type, data[type_from_yt][i], false);
-					}
+				for(var i=0;i<data[type_from_yt].length;i++){
+					addYTSearch(type, data[type_from_yt][i], false);
 				}
 			}else{
-				if(data["video"] && data["channel"] && data["playlist"]){
+				if(data["videos"] && data["channel"] && data["playlist"]){
+	
 					/* 1 Music */
-					if(data["playlist"][0]) if(data["playlist"][0]["videos"][1]) addYTSearch("music", data["playlist"][0]["videos"][1], true);
+					if(data["videos"][0]) addYTSearch("music", data["videos"][0], true);
 
 					/* 2 Users */
 					if(data["channel"][0]) addYTSearch("user", data["channel"][0], true);
@@ -1363,16 +1356,9 @@ function startAPP(){
 					/* 1 Playlist */
 					if(data["playlist"][0]) addYTSearch("playlist", data["playlist"][0], true);
 
-					/* 2 Musics */
-					if(data["playlist"][1]) if(data["playlist"][1]["videos"][1]) addYTSearch("music", data["playlist"][1]["videos"][1], true);
-					if(data["playlist"][1]) if(data["playlist"][1]["videos"][2]) addYTSearch("music", data["playlist"][1]["videos"][2], true);
-					
-					/* 1 Playlist */
-					if(data["playlist"][1]) addYTSearch("playlist", data["playlist"][1], true);
-					
-					/* 2 Musics */
-					if(data["playlist"][2]) if(data["playlist"][2]["videos"][1]) addYTSearch("music", data["playlist"][2]["videos"][1], true);
-					if(data["playlist"][2]) if(data["playlist"][2]["videos"][2]) addYTSearch("music", data["playlist"][2]["videos"][2], true);
+					/* 1 Music */
+					if(data["videos"][1]) addYTSearch("music", data["videos"][1], true);
+					if(data["videos"][2]) addYTSearch("music", data["videos"][2], true);
 				}
 			}
 		})
@@ -1401,11 +1387,14 @@ function startAPP(){
 									'</div>';
 		}
 		if(type=="playlist"){
-			$("#"+id).innerHTML	+= '<div class="searchFeedItem playlistItem" data-title="'+data.title+'" data-playlist="'+data.playlist+'" data-thumb="'+data.thumb+'">'+
-										'<img class="itemBackground" src="'+data.thumb+'" alt="">'+
+		
+			console.log(data);
+		
+			$("#"+id).innerHTML	+= '<div class="searchFeedItem playlistItem" data-title="'+data.p_name+'" data-playlist="'+data.p_id+'" data-thumb="'+data.p_playlist_img+'">'+
+										'<img class="itemBackground" src="'+data.p_playlist_img+'" alt="">'+
 										'<div>'+
-											data.title+
-											'<em>'+data["statistics"][0].added+' adicionaram essa playlist</em>'+
+											data.p_name+
+											'<em>'+data.added+' adicionaram essa playlist</em>'+
 										'</div>'+
 									'</div>';
 		}
