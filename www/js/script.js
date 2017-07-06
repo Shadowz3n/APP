@@ -103,14 +103,9 @@ function onYouTubeIframeAPIReady(){
 		playerVars: {autoplay:1, rel:0, version:3, enablejsapi:1, playsinline:1},
 		events: {
 			'onReady': function(event){
-				//event.target.setPlayBackQuality("small");
 				event.target.stopVideo();
 			},
 			'onStateChange': function(event){
-			
-			
-				console.log(event);
-			
 				if(player.getPlayerState()==1){
 					document.getElementsByClassName("pause_player")[0].style.display	= "none";
 					document.getElementsByClassName("play_player")[0].style.display		= "block";
@@ -118,101 +113,6 @@ function onYouTubeIframeAPIReady(){
 				}else{
 					document.getElementsByClassName("pause_player")[0].style.display	= "block";
 					document.getElementsByClassName("play_player")[0].style.display		= "none";
-				}
-				
-				if(event.data===YT.PlayerState.CUED){
-					playlist_musics 		= player.getPlaylist();
-					currentPlaylist			= [];
-					
-					if(playlist_musics && playlist_musics.length>0){
-					
-						var playerElements	= $(".playerStatistics")[0].getElementsByTagName("li");
-						for(var i=0;i<playerElements.length;i++){
-							addClass(playerElements[i], "no_clicks");
-						}
-						addClass($("#send_message_to_live"), "no_clicks");
-						addClass($("#save_live_playlist_to_favorites"), "no_clicks");
-						
-						vanillaAjax({
-							url:"http://youoff.me/posts/",
-							data:"playlist="+playlist+
-								"&ul_id="+ul_id+
-								"&add_video_log_u_id="+window.localStorage.u_id+
-								"&add_video_log_title="+music_title+
-								"&add_video_log_music_id="+music_id+
-								"&add_video_log_videoimg="+music_img,
-							dataType:"JSON"
-						}, function(data){
-							if(data.statistics){
-								if(data.statistics[0].liked){
-									$("#like_in_player").className			= "playerStatistics_active";
-									like_in_player.setAttribute("data-pl_id", data.statistics[0].favorited);
-								}
-								if(data.statistics[0].favorited){
-									favorite_in_player.className			= "playerStatistics_active";
-									favorite_in_player.setAttribute("data-pf_id", data.statistics[0].favorited);
-								}
-								if(data.statistics[0].added>0){
-									add_in_player.className					= "playerStatistics_active";
-									add_in_player.setAttribute("data-pa_id", data.statistics[0].added);
-								}
-								$("#playerStatistics_likes").innerHTML		= data.statistics[0].likes;
-								$("#playerStatistics_comments").innerHTML	= data.statistics[0].comments;
-								$("#playerStatistics_favorites").innerHTML	= data.statistics[0].favorites;
-								$("#playerStatistics_shares").innerHTML		= data.statistics[0].added;
-								$("#playerStatistics_added").innerHTML		= data.statistics[0].added;
-							}
-							
-							$(".playerMusicList")[0].innerHTML		= "";
-							$(".playerMusicList")[1].innerHTML		= "";
-							if(data.videos){
-								for(var i=0;i<data.videos.length;i++){
-									if(data.videos[i].title){
-										currentPlaylist.push(data.videos[i].videoId);
-										if(music_id){
-											styleBg	= music_id==data.videos[i].videoId? "style='background:#171717!important'":"";
-										}else{
-											styleBg	= i==0? "style='background:#171717!important'":"";
-										}
-										
-										$(".playerMusicList")[0].innerHTML	+= '<li class="active playlistIndex" data-playlist="'+String(playlist)+'" data-title="'+String(data.videos[i].title)+'" data-thumb="'+String(data.videos[i].thumb)+'" data-videoid="'+String(data.videos[i].videoId)+'" data-index="'+i+'" '+styleBg+' >'+
-																				data.videos[i].title.substring(0, 35)+'..'+
-																				'<span>'+
-																					//String(data.videos[i].duration)+
-																					//'<i class="material-icons">&#xE5D4;</i>'+
-																				'</span>'+
-																			'</li>';
-									}
-								}
-							}
-							
-							if(data.comments_on_live){
-								if(data.comments_on_live[0]){
-									$("#save_live_playlist_to_favorites").className	= (data.comments_on_live[0].favorited)? "icon_on":"love_off";
-									$("#playlist_watchers_count_live").innerHTML	= data.comments_on_live[0].watchers;
-								} 
-								for(var i=0;i<data.comments_on_live.length;i++){
-									$("#live_comments_ul").innerHTML	+= '<li>'+
-																				'<img class="userImage" src="'+data.comments_on_live[i].u_img+'" alt="">'+
-																				'<span>'+
-																					'<b>'+data.comments_on_live[i].name+'</b><br>'+
-																					data.comments_on_live[i].ulc_text+
-																				'</span>'+
-																			'</li>';
-								}
-							}
-							
-							getIndexFromMusic		= (music_id!=null)? currentPlaylist.indexOf(music_id):0;
-							player.loadPlaylist({playlist:currentPlaylist, index:getIndexFromMusic, suggestedQuality:'small'});
-							
-							var playerElements	= $(".playerStatistics")[0].getElementsByTagName("li");
-							for(var i=0;i<playerElements.length;i++){
-								removeClass(playerElements[i], "no_clicks");
-							}
-							removeClass($("#send_message_to_live"), "no_clicks");
-							removeClass($("#save_live_playlist_to_favorites"), "no_clicks");
-						});
-					}
 				}
 			},
 			'onError': function(event){
@@ -1524,7 +1424,71 @@ function startAPP(){
 						$("#playerStatistics_shares").innerHTML		= 0;
 						$("#playerStatistics_added").innerHTML		= 0;
 						ul_id	= "";
+						if(player.getVideoData()!=playlist_videos.split(",")[0]){
+							var playerElements	= $(".playerStatistics")[0].getElementsByTagName("li");
+							for(var i=0;i<playerElements.length;i++){
+								addClass(playerElements[i], "no_clicks");
+							}
+							addClass($("#send_message_to_live"), "no_clicks");
+							addClass($("#save_live_playlist_to_favorites"), "no_clicks");
+					
+							vanillaAjax({
+								url:"http://youoff.me/posts/",
+								data:"playlist="+playlist+
+									"&ul_id="+ul_id+
+									"&add_video_log_u_id="+window.localStorage.u_id+
+									"&add_video_log_title="+music_title+
+									"&add_video_log_music_id="+music_id+
+									"&add_video_log_videoimg="+music_img,
+								dataType:"JSON"
+							}, function(data){
+								if(data.statistics){
+									if(data.statistics[0].liked){
+										$("#like_in_player").className			= "playerStatistics_active";
+										like_in_player.setAttribute("data-pl_id", data.statistics[0].favorited);
+									}
+									if(data.statistics[0].favorited){
+										favorite_in_player.className			= "playerStatistics_active";
+										favorite_in_player.setAttribute("data-pf_id", data.statistics[0].favorited);
+									}
+									if(data.statistics[0].added>0){
+										add_in_player.className					= "playerStatistics_active";
+										add_in_player.setAttribute("data-pa_id", data.statistics[0].added);
+									}
+									$("#playerStatistics_likes").innerHTML		= data.statistics[0].likes;
+									$("#playerStatistics_comments").innerHTML	= data.statistics[0].comments;
+									$("#playerStatistics_favorites").innerHTML	= data.statistics[0].favorites;
+									$("#playerStatistics_shares").innerHTML		= data.statistics[0].added;
+									$("#playerStatistics_added").innerHTML		= data.statistics[0].added;
+								}
 						
+								$(".playerMusicList")[0].innerHTML		= "";
+								$(".playerMusicList")[1].innerHTML		= "";
+						
+								if(data.comments_on_live){
+									if(data.comments_on_live[0]){
+										$("#save_live_playlist_to_favorites").className	= (data.comments_on_live[0].favorited)? "icon_on":"love_off";
+										$("#playlist_watchers_count_live").innerHTML	= data.comments_on_live[0].watchers;
+									} 
+									for(var i=0;i<data.comments_on_live.length;i++){
+										$("#live_comments_ul").innerHTML	+= '<li>'+
+																					'<img class="userImage" src="'+data.comments_on_live[i].u_img+'" alt="">'+
+																					'<span>'+
+																						'<b>'+data.comments_on_live[i].name+'</b><br>'+
+																						data.comments_on_live[i].ulc_text+
+																					'</span>'+
+																				'</li>';
+									}
+								}
+
+								var playerElements	= $(".playerStatistics")[0].getElementsByTagName("li");
+								for(var i=0;i<playerElements.length;i++){
+									removeClass(playerElements[i], "no_clicks");
+								}
+								removeClass($("#send_message_to_live"), "no_clicks");
+								removeClass($("#save_live_playlist_to_favorites"), "no_clicks");
+							});
+						}
 						player.loadVideoById({videoId:playlist_videos.split(",")[0], suggestedQuality:"small"});
 						
 						$(".playlist_name")[0].innerHTML	= music_title;
