@@ -407,7 +407,7 @@ function startAPP(){
 			
 			for(var i=0;i<data.length;i++){
 				if(data[i].array_type=="video_live"){
-					$("#feed_live").innerHTML	+= '<li class="musicItemLive" data-ul_id="'+data[i].ul_id+'" data-u_name="'+data[i].name+'" data-u_id_img="'+data[i].img+'" data-title="'+data[i].ul_videoname+'" data-playlist="'+data[i].ul_playlist_id+'" data-videoid="'+data[i].ul_video_id+'" data-thumb="'+data[i].ul_videoimg+'">'+
+					$("#feed_live").innerHTML	+= '<li class="musicItemLive" data-ul_id="'+data[i].ul_id+'" data-u_name="'+data[i].name+'" data-u_id_img="'+data[i].img+'" data-title="'+data[i].ul_videoname+'" data-playlist="'+data[i].ul_playlist_id+'" data-videos="'+data[i].videos+'" data-videoid="'+data[i].ul_video_id+'" data-thumb="'+data[i].ul_videoimg+'">'+
 																				'<a>'+
 																					'<img class="userImage" src="'+data[i].img+'" alt="">'+
 																					'<span>'+data[i].name.substr(0, 10)+'..</span>'+
@@ -430,14 +430,14 @@ function startAPP(){
 				
 				if(data[i].array_type=="video_log"){
 					$("#feed_ul").innerHTML	+= '<li>'+
-													'<a class="playlistItem" data-u_name="'+data[i].name+'" data-title="'+data[i].pw_playlist_name+'" data-playlist="'+data[i].pw_playlist_id+'" data-thumb="'+data[i].playlist_img+'">'+
+													'<a class="playlistItem" data-u_name="'+data[i].name+'" data-title="'+data[i].pw_playlist_name+'" data-playlist="'+data[i].pw_playlist_id+'" data-videos="'+data[i].videos+'" data-thumb="'+data[i].playlist_img+'">'+
 														'<img class="userImage" src="'+data[i].img+'" alt="">'+
 													'</a>'+
 													'<span class="userName">'+
-														'<a class="playlistItem" data-u_name="'+data[i].name+'" data-title="'+data[i].pw_playlist_name+'" data-playlist="'+data[i].pw_playlist_id+'" data-thumb="'+data[i].playlist_img+'">'+data[i].name+'</a>'+
+														'<a class="playlistItem" data-u_name="'+data[i].name+'" data-title="'+data[i].pw_playlist_name+'" data-playlist="'+data[i].pw_playlist_id+'" data-videos="'+data[i].videos+'" data-thumb="'+data[i].playlist_img+'">'+data[i].name+'</a>'+
 													'</span>'+
-													'<span class="user_listening playlistItem" data-u_name="'+data[i].name+'" data-title="'+data[i].pw_playlist_name+'" data-playlist="'+data[i].pw_playlist_id+'" data-thumb="'+data[i].playlist_img+'">'+
-														'está ouvindo a playlist <a class="playlistItem" data-u_name="'+data[i].name+'" data-title="'+data[i].pw_playlist_name+'" data-playlist="'+data[i].pw_playlist_id+'" data-thumb="'+data[i].playlist_img+'">'+data[i].pw_playlist_name+'</a>'+((data[i].user_playlist_name)? " de "+data[i].user_playlist_name:"")+'<br>'+
+													'<span class="user_listening playlistItem" data-u_name="'+data[i].name+'" data-title="'+data[i].pw_playlist_name+'" data-playlist="'+data[i].pw_playlist_id+'" data-videos="'+data[i].videos+'" data-thumb="'+data[i].playlist_img+'">'+
+														'está ouvindo a playlist <a class="playlistItem" data-u_name="'+data[i].name+'" data-title="'+data[i].pw_playlist_name+'" data-playlist="'+data[i].pw_playlist_id+'" data-videos="'+data[i].videos+'" data-thumb="'+data[i].playlist_img+'">'+data[i].pw_playlist_name+'</a>'+((data[i].user_playlist_name)? " de "+data[i].user_playlist_name:"")+'<br>'+
 													'</span>'+
 													'<span class="feedTime">'+timeToDifference(Number(data[i].time)*1000)+'</span>'+
 												'</li>';
@@ -1293,7 +1293,7 @@ function startAPP(){
 									'</div>';
 		}
 		if(type=="playlist"){
-			$("#"+id).innerHTML	+= '<div class="searchFeedItem playlistItem" data-videos="'+data.videos+'" data-title="'+data.p_name+'" data-playlist="'+data.p_id+'" data-thumb="'+data.p_playlist_img+'">'+
+			$("#"+id).innerHTML	+= '<div class="searchFeedItem playlistItem" data-title="'+data.p_name+'" data-playlist="'+data.p_id+'" data-videos="'+data.videos+'" data-thumb="'+data.p_playlist_img+'">'+
 										'<img class="itemBackground" src="'+data.p_playlist_img+'" alt="">'+
 										'<div>'+
 											data.p_name+
@@ -1434,7 +1434,7 @@ function startAPP(){
 				
 						vanillaAjax({
 							url:"http://youoff.me/posts/",
-							data:"playlist="+playlist+
+							data:"playlist="+(playlist!=undefined? playlist:'')+
 								"&ul_id="+ul_id+
 								"&add_video_log_u_id="+window.localStorage.u_id+
 								"&add_video_log_title="+music_title+
