@@ -108,6 +108,9 @@ function onYouTubeIframeAPIReady(){
 			},
 			'onStateChange': function(event){
 			
+			
+				console.log(event);
+			
 				if(player.getPlayerState()==1){
 					document.getElementsByClassName("pause_player")[0].style.display	= "none";
 					document.getElementsByClassName("play_player")[0].style.display		= "block";
@@ -326,6 +329,7 @@ function startAPP(){
 				music_id				= event.target.getAttribute("data-videoid");
 				music_img				= event.target.getAttribute("data-thumb");
 				playlist				= event.target.getAttribute("data-playlist");
+				playlist_videos			= classes.in_array("playlistItem")? event.target.getAttribute("data-videos"):event.target.getAttribute("data-videoid");
 				document.location.hash	= "#player&playlist="+playlist+"&title="+music_title+"&img="+music_img;
 			}
 			
@@ -985,6 +989,7 @@ function startAPP(){
 				live_u_name				= musicItemLive.getAttribute("data-u_name");
 				music_title				= musicItemLive.getAttribute("data-title");
 				//music_duration			= musicItemLive.getAttribute("data-duration");
+				playlist_videos			= musicItemLive.getAttribute("data-videoid");
 				music_id				= musicItemLive.getAttribute("data-videoid");
 				music_img				= musicItemLive.getAttribute("data-thumb");
 				playlist				= musicItemLive.getAttribute("data-playlist");
@@ -1519,8 +1524,8 @@ function startAPP(){
 						$("#playerStatistics_shares").innerHTML		= 0;
 						$("#playerStatistics_added").innerHTML		= 0;
 						ul_id	= "";
-						player.cueVideoById("u1zgFlCw8Aw", 10, "small");
-						player.cuePlaylist({'list':playlist});
+						
+						player.loadVideoById({videoId:playlist_videos.split(",")[0], suggestedQuality:"small"});
 						
 						$(".playlist_name")[0].innerHTML	= music_title;
 						$(".playlist_name")[1].innerHTML	= music_title;
