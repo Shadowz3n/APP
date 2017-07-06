@@ -974,6 +974,7 @@ function startAPP(){
 				music_title				= feed_Item.getAttribute("data-title");
 				playlist				= feed_Item.getAttribute("data-playlist");
 				music_img				= feed_Item.getAttribute("data-thumb");
+				playlist_videos			= feed_Item.getAttribute("data-videos");
 				document.location.hash	= "#player";
 			}
 			
@@ -1387,10 +1388,7 @@ function startAPP(){
 									'</div>';
 		}
 		if(type=="playlist"){
-		
-			console.log(data);
-		
-			$("#"+id).innerHTML	+= '<div class="searchFeedItem playlistItem" data-title="'+data.p_name+'" data-playlist="'+data.p_id+'" data-thumb="'+data.p_playlist_img+'">'+
+			$("#"+id).innerHTML	+= '<div class="searchFeedItem playlistItem" data-videos="'+data.videos+'" data-title="'+data.p_name+'" data-playlist="'+data.p_id+'" data-thumb="'+data.p_playlist_img+'">'+
 										'<img class="itemBackground" src="'+data.p_playlist_img+'" alt="">'+
 										'<div>'+
 											data.p_name+
