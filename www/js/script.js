@@ -371,20 +371,20 @@ function startAPP(){
 				
 				for(var i=0;i<data.favorites.length;i++){
 					$("#"+id+"_favorites").innerHTML	+= '<li>'+
-																'<a class="playlistItem" data-videos="'+data.favorites[i].videos+'" data-title="'+data.favorites[i].pw_playlist_name+'" data-playlist="'+data.favorites[i].playlist_id+'" data-thumb="'+data.favorites[i].pw_playlist_img+'">'+
+																'<a class="playlistItem" data-videoid="'+data.favorites[i].pf_videoid+'" data-title="'+data.favorites[i].pw_playlist_name+'" data-thumb="'+data.favorites[i].pw_playlist_img+'">'+
 																	'<div class="favoriteThumb">'+
 																		'<img src="'+data.favorites[i].pw_playlist_img+'" alt="">'+
 																	'</div>'+
 																'</a>'+
-																'<span class="favoriteName playlistItem" data-videos="'+data.favorites[i].videos+'" data-title="'+data.favorites[i].pw_playlist_name+'" data-playlist="'+data.favorites[i].playlist_id+'" data-thumb="'+data.favorites[i].pw_playlist_img+'">'+
+																'<span class="favoriteName" data-videoid="'+data.favorites[i].pf_videoid+'" data-title="'+data.favorites[i].pw_playlist_name+'" data-thumb="'+data.favorites[i].pw_playlist_img+'">'+
 																	'<a>'+
-																		data.favorites[i].pw_playlist_name+
+																		data.favorites[i].pw_playlist_name.substring(0,35)+'..'+
 																	'</a>'+
 																'</span>'+
 																'<span>'+
 																//data.favorites[i].views+' visualizações'+
 																'</span>'+
-																'<span class="addFavorite" data-videoimg="'+data.favorites[i].pw_playlist_img+'" data-videoname="'+data.favorites[i].pw_playlist_name+'" data-videoid="'+data.favorites[i].playlist_id+'">'+
+																'<span class="addFavorite" data-videoimg="'+data.favorites[i].pw_playlist_img+'" data-videoname="'+data.favorites[i].pw_playlist_name+'" data-videoid="'+data.favorites[i].pf_videoid+'">'+
 																	'<i class="fa fa-check"></i>'+
 																	'Adicionar'+
 																'</span>'+
