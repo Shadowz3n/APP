@@ -882,6 +882,15 @@ function startAPP(){
 				document.location.hash	= "#player";
 			}
 			
+			if(event.target.classList.contains("musicItem")){
+				music_title				= event.target.getAttribute("data-title");
+				music_id				= event.target.getAttribute("data-videoid");
+				music_img				= event.target.getAttribute("data-thumb");
+				playlist				= event.target.getAttribute("data-playlist");
+				playlist_videos			= event.target.getAttribute("data-videoid");
+				document.location.hash	= "#player&playlist="+playlist+"&title="+music_title+"&img="+music_img;
+			}
+			
 			if(event.target.classList.contains("musicItemLive") || event.target.parentNode.classList.contains("musicItemLive") || event.target.parentNode.parentNode.classList.contains("musicItemLive")){
 				var musicItemLive		= (event.target.classList.contains("musicItemLive"))? event.target:event.target.parentNode;
 				musicItemLive			= (event.target.parentNode.parentNode.classList.contains("musicItemLive"))? event.target.parentNode.parentNode:musicItemLive;
