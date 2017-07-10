@@ -1503,12 +1503,14 @@ function startAPP(){
 						$(".playlist_name")[0].innerHTML	= music_title;
 						$(".playlist_name")[1].innerHTML	= music_title;
 						$(".playlist_name")[2].innerHTML	= music_title;
+						$(".playlist_name")[3].innerHTML	= music_title;
 						$(".playlist_user_name_text")[0].innerHTML		= (live_u_name==undefined)? "":"Playlist de "+live_u_name;
 						$(".playlist_user_name_text")[1].innerHTML		= (live_u_name==undefined)? "":"Playlist de "+live_u_name;
 						$(".playlist_user_name_text")[2].innerHTML		= (live_u_name==undefined)? "":"Playlist de "+live_u_name;
 						
 						$(".change_thumb_player")[0].setAttribute("src", music_img);
 						$(".change_thumb_player")[1].setAttribute("src", music_img);
+						$(".change_thumb_player")[2].setAttribute("src", music_img);
 						$(".playerMusicList")[0].innerHTML	= "<img src='img/loading.svg' style='width:45px;display:table;margin-top:25px;margin-left:auto;margin-right:auto' alt=''>";
 					}
 				}
