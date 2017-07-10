@@ -1476,14 +1476,8 @@ function startAPP(){
 							
 							if(data.videos.length>0){
 								var data_videos	= data.videos[0].videos.split(",||||||||||line_separator_youoff||||||||||");
-							
-								console.log(data_videos);
-							
 								for(var i=0;i<data_videos.length;i++){
 									var each_column	= data_videos[i].split("||||||||||separator_youoff||||||||||");
-								
-									console.log(each_column);
-								
 									$(".playerMusicList")[0].innerHTML		+= '<li class="musicItem" data-playlist="'+each_column[2]+'" data-title="'+each_column[0]+'" data-videoid="'+each_column[3]+'" data-thumb="'+each_column[1]+'">'+each_column[0]+'</li>';
 								}
 							}
