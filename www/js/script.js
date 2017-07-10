@@ -341,11 +341,11 @@ function startAPP(){
 					}
 				}
 				for(var i=0;i<data.history.length;i++){
-					$("#"+id+"_feed").innerHTML	+= '<li class="musicItem" data-playlist="'+data.history[i].pw_playlist_id+'" data-title="'+data.history[i].pw_playlist_name+'" data-videoid="'+data.history[i].pw_videoid+'" data-thumb="'+data.history[i].pw_playlist_img+'">'+
-														'<a class="musicItem" data-playlist="'+data.history[i].pw_playlist_id+'" data-title="'+data.history[i].pw_playlist_name+'" data-videoid="'+data.history[i].pw_videoid+'" data-thumb="'+data.history[i].pw_playlist_img+'">'+
+					$("#"+id+"_feed").innerHTML	+= '<li class="musicItem" data-playlist="'+data.history[i].p_id+'" data-title="'+data.history[i].pw_playlist_name+'" data-videoid="'+data.history[i].pw_videoid+'" data-thumb="'+data.history[i].pw_playlist_img+'">'+
+														'<a class="musicItem" data-playlist="'+data.history[i].p_id+'" data-title="'+data.history[i].pw_playlist_name+'" data-videoid="'+data.history[i].pw_videoid+'" data-thumb="'+data.history[i].pw_playlist_img+'">'+
 															'<img class="userImage" src="'+data.history[i].u_img+'" alt="">'+
 														'</a>'+
-														'<span class="musicItem" data-playlist="'+data.history[i].pw_playlist_id+'" data-title="'+data.history[i].pw_playlist_name+'" data-videoid="'+data.history[i].pw_videoid+'" data-thumb="'+data.history[i].pw_playlist_img+'">'+
+														'<span class="musicItem" data-playlist="'+data.history[i].p_id+'" data-title="'+data.history[i].pw_playlist_name+'" data-videoid="'+data.history[i].pw_videoid+'" data-thumb="'+data.history[i].pw_playlist_img+'">'+
 															'está ouvindo a playlist <a>'+data.history[i].pw_playlist_name+'</a>'+
 														'</span>'+
 														'<span class="feedTime">'+timeToDifference(Number(data.history[i].pw_time)*1000)+'</span>'+
@@ -353,13 +353,13 @@ function startAPP(){
 				}
 				
 				for(var i=0;i<data.playlists.length;i++){
-					$("#"+id+"_playlists").innerHTML	+= '<li class="live_u_name playlistItem" data-videos="'+data.playlists[i].videos+'" data-u_name="'+data.playlists[i].u_name+'" data-title="'+data.playlists[i].p_name+'" data-playlist="'+data.playlists[i].p_playlist_id+'" data-thumb="'+data.playlists[i].p_playlist_img+'">'+
-																'<a class="live_u_name playlistItem" data-videos="'+data.playlists[i].videos+'" data-u_name="'+data.playlists[i].u_name+'" data-title="'+data.playlists[i].p_name+'" data-playlist="'+data.playlists[i].p_playlist_id+'" data-thumb="'+data.playlists[i].p_playlist_img+'">'+
+					$("#"+id+"_playlists").innerHTML	+= '<li class="live_u_name playlistItem" data-videos="'+data.playlists[i].videos+'" data-u_name="'+data.playlists[i].u_name+'" data-title="'+data.playlists[i].p_name+'" data-playlist="'+data.playlists[i].p_id+'" data-thumb="'+data.playlists[i].p_playlist_img+'">'+
+																'<a class="live_u_name playlistItem" data-videos="'+data.playlists[i].videos+'" data-u_name="'+data.playlists[i].u_name+'" data-title="'+data.playlists[i].p_name+'" data-playlist="'+data.playlists[i].p_id+'" data-thumb="'+data.playlists[i].p_playlist_img+'">'+
 																	'<div class="favoriteThumb">'+
 																		'<img src="'+data.playlists[i].p_playlist_img+'" alt="">'+
 																	'</div>'+
 																'</a>'+
-																'<span class="favoriteName live_u_name playlistItem" data-videos="'+data.playlists[i].videos+'" data-u_name="'+data.playlists[i].u_name+'" data-title="'+data.playlists[i].p_name+'" data-playlist="'+data.playlists[i].p_playlist_id+'" data-thumb="'+data.playlists[i].p_playlist_img+'">'+
+																'<span class="favoriteName live_u_name playlistItem" data-videos="'+data.playlists[i].videos+'" data-u_name="'+data.playlists[i].u_name+'" data-title="'+data.playlists[i].p_name+'" data-playlist="'+data.playlists[i].p_id+'" data-thumb="'+data.playlists[i].p_playlist_img+'">'+
 																	data.playlists[i].p_name+"<br><span style='font-size:12px!important'>"+data.playlists[i].views+' visualizações</span>'+
 																'</span>'+
 																'<!--<span class="addFavorite" data-videoimg="'+data.playlists[i].p_playlist_img+'" data-videoname="'+data.playlists[i].p_name+'" data-videoid="'+data.playlists[i].p_playlist_id+'">'+
