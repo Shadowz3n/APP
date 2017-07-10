@@ -1583,7 +1583,7 @@ function startAPP(){
 					});
 					
 					player.stopVideo();
-					player.loadVideoById({videoId:playlist_videos.split(",")[0], suggestedQuality:"small"});
+					player.loadVideoById({playlist:playlist_videos.split(","), suggestedQuality:"small"});
 				}
 			}
 		
