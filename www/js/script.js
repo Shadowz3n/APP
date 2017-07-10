@@ -437,7 +437,7 @@ function startAPP(){
 														'<a class="playlistItem" data-u_name="'+data[i].name+'" data-title="'+data[i].pw_playlist_name+'" data-playlist="'+data[i].pw_playlist_id+'" data-videos="'+data[i].videos+'" data-thumb="'+data[i].playlist_img+'">'+data[i].name+'</a>'+
 													'</span>'+
 													'<span class="user_listening playlistItem" data-u_name="'+data[i].name+'" data-title="'+data[i].pw_playlist_name+'" data-playlist="'+data[i].pw_playlist_id+'" data-videos="'+data[i].videos+'" data-thumb="'+data[i].playlist_img+'">'+
-														'está ouvindo a playlist <a class="playlistItem" data-u_name="'+data[i].name+'" data-title="'+data[i].pw_playlist_name+'" data-playlist="'+data[i].pw_playlist_id+'" data-videos="'+data[i].videos+'" data-thumb="'+data[i].playlist_img+'">'+data[i].pw_playlist_name+'</a>'+((data[i].u_id!=data[i].user_id_from_playlist && data[i].user_playlist_name)? " de "+data[i].user_playlist_name:"")+'<br>'+
+														'está ouvindo '+(data[i].u_id==data[i].user_id_from_playlist? "sua":"a")+' playlist <a class="playlistItem" data-u_name="'+data[i].name+'" data-title="'+data[i].pw_playlist_name+'" data-playlist="'+data[i].pw_playlist_id+'" data-videos="'+data[i].videos+'" data-thumb="'+data[i].playlist_img+'">'+data[i].pw_playlist_name+'</a>'+((data[i].u_id!=data[i].user_id_from_playlist && data[i].user_playlist_name)? " de "+data[i].user_playlist_name:"")+'<br>'+
 													'</span>'+
 													'<span class="feedTime">'+timeToDifference(Number(data[i].time)*1000)+'</span>'+
 												'</li>';
