@@ -1498,7 +1498,7 @@ function startAPP(){
 							removeClass($("#save_live_playlist_to_favorites"), "no_clicks");
 						});
 						player.stopVideo();
-						player.loadVideoById({videoId:playlist_videos.split(",")[0], playlist:playlist_videos.split(","), suggestedQuality:"small"});
+						player.loadVideoById({videoId:playlist_videos.split(",")[0], playlist:playlist_videos, suggestedQuality:"small"});
 						
 						$(".playlist_name")[0].innerHTML	= music_title;
 						$(".playlist_name")[1].innerHTML	= music_title;
@@ -1585,7 +1585,7 @@ function startAPP(){
 					});
 					
 					player.stopVideo();
-					player.loadVideoById({videoId:playlist_videos.split(",")[0], playlist:playlist_videos.split(","), suggestedQuality:"small"});
+					player.loadVideoById({videoId:playlist_videos.split(",")[0], playlist:playlist_videos, suggestedQuality:"small"});
 				}
 			}
 		
