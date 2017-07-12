@@ -27,6 +27,8 @@
     <preference name="AllowInlineMediaPlayback" value="true" />
 	<preference name="MediaPlaybackRequiresUserAction" value="false" />
 	<preference name="SplashScreen" value="none" />
+	<preference name="FadeSplashScreenDuration" value="0"/>
+	<preference name="SplashScreenDelay" value="0" />
     <!--<icon src="www/icons/android/icon-192-xxxhdpi.png" />-->
     <icon gap:platform="blackberry" src="www/img/icon.png" />
     <icon gap:platform="blackberry" gap:state="hover" src="www/img/icon.png" />
