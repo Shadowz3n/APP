@@ -26,7 +26,8 @@
     <preference name="android-installLocation" value="auto" />
     <preference name="AllowInlineMediaPlayback" value="true" />
 	<preference name="MediaPlaybackRequiresUserAction" value="false" />
-    <icon src="www/icons/android/icon-192-xxxhdpi.png" />
+	<preference name="SplashScreen" value="none" />
+    <!--<icon src="www/icons/android/icon-192-xxxhdpi.png" />-->
     <icon gap:platform="blackberry" src="www/img/icon.png" />
     <icon gap:platform="blackberry" gap:state="hover" src="www/img/icon.png" />
     <icon gap:platform="ios" height="57" src="www/icons/ios/icon.png" width="57" />
