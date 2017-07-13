@@ -51,7 +51,7 @@
 	<icon src="www/icons/android/icon-72-hdpi.png" platform="android" qualifier="hdpi" />
 	<icon src="www/icons/android/icon-96-xhdpi.png" platform="android" qualifier="xhdpi" />
     
-    <icon gap:platform="blackberry" src="www/img/icon.png" />
+    <!--<icon gap:platform="blackberry" src="www/img/icon.png" />
     <icon gap:platform="blackberry" gap:state="hover" src="www/img/icon.png" />
     <icon gap:platform="ios" height="57" src="www/icons/ios/icon.png" width="57" />
     <icon gap:platform="ios" height="72" src="www/icons/ios/icon-72.png" width="72" />
@@ -69,7 +69,7 @@
     <gap:splash gap:platform="ios" height="57" src="www/icons/ios/icon.png" width="57" />
     <gap:splash gap:platform="ios" height="72" src="www/icons/ios/icon-72.png" width="72" />
     <gap:splash gap:platform="ios" height="114" src="www/icons/ios/icon-2x.png" width="114" />
-    <gap:splash gap:platform="ios" height="144" src="www/icons/ios/icon-72-2x.png" width="144" />
+    <gap:splash gap:platform="ios" height="144" src="www/icons/ios/icon-72-2x.png" width="144" />-->
     <gap:config-file parent="CFBundleShortVersionString" platform="ios">
         <string>100</string>
     </gap:config-file>
