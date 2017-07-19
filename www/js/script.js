@@ -915,7 +915,7 @@ function startAPP(){
 				music_id				= musicItemLive.getAttribute("data-videoid");
 				music_img				= musicItemLive.getAttribute("data-thumb");
 				playlist				= musicItemLive.getAttribute("data-playlist");
-				ul_id					= musicItemLive.getAttribute("data-ul_id");				
+				ul_id					= musicItemLive.getAttribute("data-ul_id");		
 				$("#liveButtonTransmissao").style.opacity	= 0;
 				document.location.hash	= "#player_live";
 			}
