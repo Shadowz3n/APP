@@ -723,7 +723,7 @@ function startAPP(){
 		$("#share_on_whatsapp").addEventListener(e, function(e){
 			window.plugins.socialsharing.shareViaWhatsApp(player.getVideoUrl()+" "+$("#share_text").value, 
 															music_img, 
-															null /* url */, function(){
+															player.getVideoUrl(), function(){
 																console.log('share ok')
 															}, function(errormsg){
 																alert(errormsg)
