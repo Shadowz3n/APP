@@ -50,7 +50,7 @@ input,select,button:focus{outline:1px solid #585858}
 .headerAside > nav > ul{list-style:none;}
 .headerAside > nav > ul > li{display:inline-block;}
 .headerAside > nav > ul > li > a{color:#fdfdfd;display:block;font-size:2em;margin:0 0 0 10px;padding:10px;}
-.liveSection{background:#2b2b2b url(../img/liveTag.jpg) no-repeat center left;background-size:auto 100%;display:block;overflow:hidden;padding:5px 10px 10px 30px;width:100%;height:75px}
+.liveSection{background:#2b2b2b url(../img/liveTag.jpg) no-repeat center left;background-size:auto 100%;display:block;padding:5px 10px 10px 30px;width:100%;height:75px}
 .liveSection > ul{display:block;list-style:none;overflow-x:auto;width:1000%;}
 .liveSection > ul > li{display:inline-block;margin:0 10px;}
 .liveSection > ul > li > a{color:#fdfdfd;display:block;font-size:10px;width:100%;}
@@ -66,6 +66,7 @@ input,select,button:focus{outline:1px solid #585858}
 .userFeed > h2{border-bottom:1px solid #424242;color:#656565;font-size:1em;font-weight:400;padding:8px 15px;}
 .userFeed > ul{list-style:none;}
 .userFeed > ul > li{border-bottom:1px solid #424242;clear:both;height:70px;padding:10px;position:relative;}
+.userFeed > ul > li:hover{background:#171717!important}
 .userFeed > ul > li > a > img{float:left;margin:0 10px 0 0;}
 .userFeed > ul > li > span{color:#656565;display:block;font-size:0.9em;}
 .userFeed > ul > li > span > a{color:#c93b3b;}
@@ -127,7 +128,7 @@ input,select,button:focus{outline:1px solid #585858}
 .userFavorites > ul{list-style:none;}
 .userFavorites > ul > li{border-bottom:1px solid #424242;clear:both;height:90px;padding:10px;position:relative;}
 .userFavorites > ul > li > a{display:block}
-.userFavorites > ul > li > a > .favoriteThumb{display:block;float:left;margin:5px 20px 0 0;position:relative;width:81px;height:50px}
+.userFavorites > ul > li > a > .favoriteThumb{display:block;float:left;margin:5px 5px 0 0;position:relative;width:81px;height:50px}
 .userFavorites > ul > li > a > .favoriteThumb img{max-width:100%;max-height:100%}
 .userFavorites > ul > li > span{color:#656565;}
 .userFavorites > ul > li > .favoriteName > a{color:#656565;display:block;font-size:1.2em;font-weight:400;margin:0 0 3px 0;max-width:280px;}
@@ -181,6 +182,7 @@ input,select,button:focus{outline:1px solid #585858}
 .playerHeader{position:fixed;top:0px;width:100%;height:80px;padding:20px 20px 20px 0px}
 .playerHeader>img{float:right;width:53px}
 .playerHeader span{display:table;position:relative}
+#playerComment .playerHeader span{display:table;position:relative;width:67%}
 .playerHeader span small{font-size:12px;font-weight:100!important}
 .liveButton{background:#171717;color:#a5a5a5;border:0px;padding:3px 5px;text-transform:uppercase;border-radius:5px;width:70px;height:22px;display:table;margin:15px auto 15px auto}
 .quit_from_player{font-size:24px;color:white;padding:12px 20px;display:table;float:left}
@@ -261,7 +263,7 @@ position:fixed;bottom:0px;margin:0px auto 0px auto;left:0px;right:0px;width:100%
 #playerComment > .commentsSection > .userShareComment > img{float:left;margin:0 20px 0 0;}
 #playerComment > .commentsSection > .userShareComment > textarea{background:#1d1d1d;border:1px solid #2f2f2f;color:#aeaeae;margin:0 0 30px;padding:5px;width:calc(100% - 130px)}
 #playerComment > .commentsSection > .sharePageButton{background:#242424;border:none;bottom:0;color:#db3e3e;font-size:2.3em;font-weight:bold;padding:15px;position:fixed;text-align:center;text-transform:uppercase;width:100%;}
-#playerComment > .commentsSection > ul.commentsList{list-style:none;margin:40px 30px 0;}
+#playerComment > .commentsSection > ul.commentsList{list-style:none;margin:40px 30px 0;height:135px;overflow-y:auto;position:relative}
 #playerComment > .commentsSection > ul.commentsList > li{border-bottom:1px solid #424242;clear:both;height:auto;padding:10px;position:relative;}
 #playerComment > .commentsSection > ul.commentsList > li > a > img{float:left;margin:0 10px 0 0;}
 #playerComment > .commentsSection > ul.commentsList > li > div{color:#dbdbdb;font-style:italic;margin:0 0 0 60px;}
@@ -323,7 +325,7 @@ color:white}
 #playerComment, #playerShare{top:100%;position:relative;transition:all 0.3s ease}
 #playerComment .playerHeader, #playerShare .playerHeader{position:absolute}
 #playerComment .userShareComment{position:absolute}
-#player_yt{display:none}
+#player_yt{display:none;width:1px;height:1px}
 .user_listening{width:80%;display:table}
 .no_clicks{pointer-events:none!important;opacity:0.8}
 #add_favorites_ul{list-style:none;margin:0px;padding:0px}
@@ -335,3 +337,15 @@ color:white}
 .favoriteThumb{width:40%;float:left}
 .favoriteThumb img{max-width:100%;height:auto;padding-right:5%}
 .favoriteName{float:left;width:55%;color:#656565;font-size:1.2em}
+.feed_live_scroll{width:100%;display:block;overflow-x:scroll}
+.feed_live_scroll ul{width:250%;margin:0px;padding:0px;list-style:none;display:table}
+.feed_live_scroll ul li{float:left;width:70px;text-align:center}
+.feed_live_scroll ul li a{display:block;width:100%;height:100%;text-align:center}
+.feed_live_scroll ul li a{font-size:10px}
+.feed_live_scroll ul li a img{display:table;margin-left:auto;margin-right:auto}
+.feed_ao_vivo_bg{position:absolute;background: #578b27;
+background: -moz-linear-gradient(top,  #578b27 0%, #384b24 100%);
+background: -webkit-linear-gradient(top,  #578b27 0%,#384b24 100%);
+background: linear-gradient(to bottom,  #578b27 0%,#384b24 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#578b27', endColorstr='#384b24',GradientType=0 );transform:rotateZ(90deg);-webkit-transform:rotateZ(90deg);width:75px;height:38px;text-align:center;line-height:31px;font-size:14px;left:-27px;margin-top:13px;font-weight:900}
+#player_live .liveButton .icon_on{width:22px;margin-top:2px;margin-left:-5px}
