@@ -24,13 +24,15 @@
 		<meta name="format-detection" content="telephone=no">
 		<meta name="msapplication-tap-highlight" content="no">
 		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<title>Aplicativo</title>
+		<title>Youoff</title>
 	</head>
 	<body>
+		<div id="player_yt"></div>
 		<div class="app">
 			<header class="appHeader">
 				<div class="headerLogo">
@@ -58,16 +60,8 @@
 					<div class="swiper-wrapper">
 						<div class="swiper-slide feed_slide" id="feed" data-hash="feed">
 							<section class="liveSection">
-								<ul id="feed_live">
-									<!--
-									<li>
-										<a class="active" href="#player_live">
-										<img class="userImage" src="img/user.jpg" alt="">
-										<span>Eloá2 Ribeiro</span>
-										</a>
-									</li>
-									-->
-								</ul>
+								<div class="feed_ao_vivo_bg">AO VIVO</div>
+								<div class="feed_live_scroll"><ul id="feed_live"></ul></div>
 							</section>
 							<section class="userFeed">
 								<ul id="feed_ul">
@@ -312,40 +306,7 @@
 											<a href="#add_playlist" class="addAllFavorites addAllFavorites_click">
 											 	<i class="material-icons"></i>Adicionar todas
 											</a>
-											<ul id="my_account_favorites">
-												<!--
-												<li class="">
-													<a href="#user_page">
-														<div class="favoriteThumb">
-															<img src="img/playlistThumb.jpg" alt="">
-														</div>
-													</a>
-													<span class="favoriteName"><a href="#user_page">Simple Worship #1 Mais q vencedor</a></span>
-													<span>
-													392.766 visualizações
-													</span>
-													<span class="addFavorite added">
-													<i class="fa fa-check"></i>
-													Adicionado
-													</span>
-												</li>
-												<li class="">
-													<a href="#user_page">
-														<div class="favoriteThumb">
-															<img src="img/playlistThumb.jpg" alt="">
-														</div>
-													</a>
-													<span class="favoriteName"><a href="#user_page">Simple Worship #1 Mais q vencedor</a></span>
-													<span>
-													392.766 visualizações
-													</span>
-													<span class="addFavorite">
-													<i class="fa fa-check"></i>
-													Adicionar
-													</span>
-												</li>
-												-->
-											</ul>
+											<ul id="my_account_favorites"></ul>
 										</section>
 									</div>
 								</div>
@@ -353,41 +314,7 @@
 						</div>
 						<div class="swiper-slide" id="notify" data-hash="notify">
 							<section class="notifyFeed">
-								<ul id="notifyFeed_ul">
-									<!--
-									<li>
-										<a href="#user_page">
-										<img class="userImage" src="img/user.jpg" alt="">
-										</a>
-										<span class="userName"><a href="#user_page">Daniel Barros</a></span>
-										<span>
-										começou a seguir você
-										</span>
-										<span class="feedTime">5h</span>
-									</li>
-									<li>
-										<a href="#user_page">
-										<img class="userImage" src="img/user.jpg" alt="">
-										</a>
-										<span class="userName"><a href="#user_page">Eloá Ribeiro</a></span>
-										<span>
-										adicionou sua playlist<br>
-										<a>Hora de Dormir</a> aos favoritos
-										</span>
-										<span class="feedTime">5h</span>
-									</li>
-									<li>
-										<a href="#user_page">
-										<img class="userImage" src="img/user.jpg" alt="">
-										</a>
-										<span class="userName"><a href="#user_page">Sarah Nydya</a></span>
-										<span>
-										começou a seguir você
-										</span>
-										<span class="feedTime">5h</span>
-									</li>
-									-->
-								</ul>
+								<ul id="notifyFeed_ul"></ul>
 							</section>
 						</div>
 						<div class="swiper-slide player_slide" id="player" style="overflow:hidden!important" data-hash="player">
@@ -395,10 +322,10 @@
 							<header class="playerHeader">
 								<img src="img/logo.svg" class="float_right" alt="">
 								<h1>
-									<a href="#" class="quit_from_player"><i class="fa fa-angle-left float_left"></i></a>
-									<span class="float_left">
-										Melhores do Indie<br>
-										<small>Playlist de Eloá Ribeiro</small>
+									<a href="#feed" id="window_history_back_url" style="font-size:24px;color:white;padding:12px 20px;display:table;float:left"><i class="fa fa-angle-left float_left"></i></a>
+									<span class="float_left" style="width:60%;font-size:17px;line-height:20px">
+										<span class="playlist_name"></span>
+										<small class="playlist_user_name_text"></small>
 									</span>
 								</h1>
 							</header>
@@ -448,14 +375,14 @@
 									</ul>
 									<ul class="playerOptions">
 										<li>
-											<img src="img/player_back.svg" class="next_player" alt="">
+											<img src="img/player_back.svg" class="back_player" alt="">
 										</li>
 										<li>
 											<img src="img/player_pause.svg" class="pause_play_player play_player icon_off" style="width:50px!important" alt="">
 											<img src="img/icones-07.svg" class="pause_play_player pause_player icon_on" style="width:50px!important;margin:7px 0px!important" alt="">
 										</li>
 										<li>
-											<img src="img/player_forward.svg" class="back_player" alt="">
+											<img src="img/player_forward.svg" class="next_player" alt="">
 										</li>
 									</ul>
 									<div class="playerProgressTime">0:00</div>
@@ -473,7 +400,10 @@
 						</div>
 						<div class="swiper-slide" id="player_live" data-hash="player_live">
 							<header class="playerHeader">
-								<button class="liveButton liveButtonActive float_right" type="button" style="background:#424242;padding:0px 7px!important;width:auto!important;margin-left:5px"><i class="fa fa-deaf" aria-hidden="true"></i><span id="playlist_watchers_count_live" style="float:right">0</span></button>
+								<button class="liveButton liveButtonActive float_right" type="button" style="background:#424242;padding:0px 7px!important;width:auto!important;margin-left:5px;line-height:24px">
+									<img src="img/icones-05.svg" class="icon_on" alt="Minha conta">
+									<span id="playlist_watchers_count_live" style="float:right">0</span>
+								</button>
 								<button class="liveButton liveButtonActive float_right" type="button">Ao vivo</button>
 								<h1>
 									<a href="#" class="quit_from_player"><i class="fa fa-angle-left float_left"></i></a>
@@ -483,7 +413,7 @@
 							</header>
 							<section>
 								<div class="player_section_height">
-									<button class="liveButton" type="button" style="width:auto!important">ENCERRAR TRANSMISSÃO</button>
+									<button class="liveButton" id="liveButtonTransmissao" type="button" style="width:auto!important">ENCERRAR TRANSMISSÃO</button>
 									<img class="activeSong" id="activeSongLive" src="img/playlist_img.png" alt="">
 									<div class="player_music_name" id="player_live_music_name"></div>
 									<div class="playerProgressOnMouseUp"></div>
@@ -507,8 +437,8 @@
 								<h1>
 									<a href="#player"><i class="fa fa-angle-left float_left quit_from_player"></i></a>
 									<span class="float_left">
-										Melhores do Indie<br>
-										<small>Playlist de Eloá Ribeiro</small>
+										<span class="playlist_name"></span>
+										<small class="playlist_user_name_text"></small>
 									</span>
 								</h1>
 							</header>
@@ -539,10 +469,10 @@
 									<textarea name="name" rows="5" id="share_text" placeholder="Say something about this"></textarea>
 								</div>
 								<div class="shareDetails">
-									<img class="playlistImage" src="img/playlistThumb.jpg" alt="">
+									<img class="playlistImage change_thumb_player" src="img/playlistThumb.jpg" alt="">
 									<div class="detailsHeader">
 										<img class="logoImage" src="img/logoApp.png" alt="">
-										<span>PLAYLIST Melhores do Indie</span>
+										<span class="playlist_name"></span>
 									</div>
 									<p>O único aplicativo que possibilita você ouvir suas músicas preferidas no celular em Offline (sem internet), 100% GRATUITO e sem propagandas.</p>
 								</div>
@@ -555,8 +485,8 @@
 								<h1>
 									<a href="#player" class="quit_from_player"><i class="fa fa-angle-left float_left"></i></a>
 									<span class="float_left">
-										Melhores do Indie<br>
-										<small>Playlist de Eloá Ribeiro</small>
+										<span class="playlist_name"></span>
+										<small class="playlist_user_name_text"></small>
 									</span>
 								</h1>
 							</header>
@@ -832,7 +762,6 @@
 					</ul>
 				</nav>
 			</footer>
-			<div id="player_yt"></div>
 		</div>
 		<script type="text/javascript">
 			window.onerror	= function(what, line, file){ alert(what+'; '+line+'; '+file); }
