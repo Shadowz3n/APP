@@ -30,6 +30,8 @@
 	<preference name="FadeSplashScreenDuration" value="0"/>
 	<preference name="SplashScreenDelay" value="0" />
 	
+	<preference name="prerendered-icon" value="true" />
+	
 	<icon src="www/icons/android/icon-36-ldpi.png" platform="android" qualifier="ldpi" />
 	<icon src="www/icons/android/icon-48-mdpi.png" platform="android" qualifier="mdpi" />
 	<icon src="www/icons/android/icon-72-hdpi.png" platform="android" qualifier="hdpi" />
