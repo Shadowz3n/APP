@@ -722,7 +722,7 @@ function startAPP(){
 	("touchend".split(" ")).forEach(function(e){
 		$("#share_on_whatsapp").addEventListener(e, function(e){
 			window.plugins.socialsharing.shareViaWhatsApp(player.getVideoUrl()+" "+$("#share_text").value, 
-															music_img, 
+															null, 
 															player.getVideoUrl(), function(){
 																console.log('share ok')
 															}, function(errormsg){
